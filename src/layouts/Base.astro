@@ -6,7 +6,7 @@ import { b, plain } from "../blanks";
 interface Props { title?: string }
 const name = b("brand.name");
 const tagline = plain(b("brand.tagline"));
-const title = Astro.props.title ? `${Astro.props.title} · ${name}` : `${name} · ${tagline}`;
+const title = Astro.props.title ? `${Astro.props.title} · ${name}` : name;
 ---
 <!doctype html>
 <html lang="en">

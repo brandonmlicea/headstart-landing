@@ -33,7 +33,18 @@
       "ask": "Color format",
       "hint": "How the generated tokens are written in CSS. Both sites use the same one.",
       "kind": "format",
-      "value": ""
+      "value": "",
+      "options": [
+        "hex",
+        "rgb",
+        "srgb",
+        "hsl",
+        "oklch",
+        "oklab",
+        "lab",
+        "lch",
+        "p3"
+      ]
     },
     "brand.location": {
       "ask": "City and region",
@@ -44,7 +55,7 @@
     },
     "link.app": {
       "ask": "Product URL",
-      "hint": "The full address of the private product app (the headstart-product repo), for every Open app button.",
+      "hint": "The full address of the private product app, for every Open app button. Running both on this computer: http://localhost:5173.",
       "kind": "url",
       "value": ""
     },
@@ -57,6 +68,48 @@
     "nav.cta": {
       "ask": "Nav button label",
       "hint": "Two or three words on the button that opens the product.",
+      "kind": "text",
+      "max": 20,
+      "value": ""
+    },
+    "nav.care": {
+      "ask": "Nav label for the pillars",
+      "hint": "One or two words for the link to the pinned cards under the hero.",
+      "kind": "text",
+      "max": 16,
+      "value": ""
+    },
+    "nav.services": {
+      "ask": "Nav label for services",
+      "hint": "One or two words for the link to the services grid; also used in the footer.",
+      "kind": "text",
+      "max": 16,
+      "value": ""
+    },
+    "nav.approach": {
+      "ask": "Nav label for approach",
+      "hint": "One or two words for the link to the approach cards.",
+      "kind": "text",
+      "max": 16,
+      "value": ""
+    },
+    "nav.partners": {
+      "ask": "Nav label for the partners page",
+      "hint": "One to three words for the link to /partners; also used in the footer.",
+      "kind": "text",
+      "max": 20,
+      "value": ""
+    },
+    "footer.visit": {
+      "ask": "Footer heading over the site links",
+      "hint": "One or two words.",
+      "kind": "text",
+      "max": 20,
+      "value": ""
+    },
+    "footer.reach": {
+      "ask": "Footer heading over email and location",
+      "hint": "One to three words.",
       "kind": "text",
       "max": 20,
       "value": ""
@@ -84,7 +137,7 @@
     },
     "hero.sub": {
       "ask": "Hero sentence",
-      "hint": "One sentence under the headline that says who you help and how.",
+      "hint": "One sentence under the headline that says who you serve and how.",
       "kind": "text",
       "max": 160,
       "min": 30,
@@ -93,6 +146,13 @@
     "hero.cta": {
       "ask": "Hero button label",
       "hint": "The main call to action, two to four words.",
+      "kind": "text",
+      "max": 24,
+      "value": ""
+    },
+    "hero.second": {
+      "ask": "Hero second button label",
+      "hint": "Two or three words on the outlined button that scrolls to the services.",
       "kind": "text",
       "max": 24,
       "value": ""
@@ -124,7 +184,7 @@
     },
     "pillar.1.body": {
       "ask": "Pillar 1 text",
-      "hint": "Two sentences on what the patient gets.",
+      "hint": "Two sentences on what the people you serve get.",
       "kind": "text",
       "max": 240,
       "min": 40,
@@ -157,7 +217,7 @@
     },
     "pillar.2.body": {
       "ask": "Pillar 2 text",
-      "hint": "Two sentences on what the patient gets.",
+      "hint": "Two sentences on what the people you serve get.",
       "kind": "text",
       "max": 240,
       "min": 40,
@@ -190,7 +250,7 @@
     },
     "pillar.3.body": {
       "ask": "Pillar 3 text",
-      "hint": "Two sentences on what the patient gets.",
+      "hint": "Two sentences on what the people you serve get.",
       "kind": "text",
       "max": 240,
       "min": 40,
@@ -223,7 +283,7 @@
     },
     "pillar.4.body": {
       "ask": "Pillar 4 text",
-      "hint": "Two sentences on what the patient gets.",
+      "hint": "Two sentences on what the people you serve get.",
       "kind": "text",
       "max": 240,
       "min": 40,
@@ -275,7 +335,7 @@
     },
     "service.1.title": {
       "ask": "Service 1 name",
-      "hint": "The name of one service you offer.",
+      "hint": "The name of one service, program or feature you offer.",
       "kind": "text",
       "max": 36,
       "value": ""
@@ -290,7 +350,7 @@
     },
     "service.2.title": {
       "ask": "Service 2 name",
-      "hint": "The name of one service you offer.",
+      "hint": "The name of one service, program or feature you offer.",
       "kind": "text",
       "max": 36,
       "value": ""
@@ -305,7 +365,7 @@
     },
     "service.3.title": {
       "ask": "Service 3 name",
-      "hint": "The name of one service you offer.",
+      "hint": "The name of one service, program or feature you offer.",
       "kind": "text",
       "max": 36,
       "value": ""
@@ -320,7 +380,7 @@
     },
     "service.4.title": {
       "ask": "Service 4 name",
-      "hint": "The name of one service you offer.",
+      "hint": "The name of one service, program or feature you offer.",
       "kind": "text",
       "max": 36,
       "value": ""
@@ -335,7 +395,7 @@
     },
     "service.5.title": {
       "ask": "Service 5 name",
-      "hint": "The name of one service you offer.",
+      "hint": "The name of one service, program or feature you offer.",
       "kind": "text",
       "max": 36,
       "value": ""
@@ -697,7 +757,7 @@
     },
     "partners.title": {
       "ask": "Partners headline",
-      "hint": "Three to six words for health plans, providers and employers. Wrap the one or two words to set in italics in *stars*.",
+      "hint": "Three to six words for the organisations that buy or refer: health plans, providers, employers, schools. Wrap the one or two words to set in italics in *stars*.",
       "kind": "text",
       "max": 56,
       "value": ""
@@ -708,6 +768,13 @@
       "kind": "text",
       "max": 240,
       "min": 40,
+      "value": ""
+    },
+    "partners.cta": {
+      "ask": "Partners button label",
+      "hint": "Two to four words on the button that emails you.",
+      "kind": "text",
+      "max": 24,
       "value": ""
     },
     "benefit.1.icon": {

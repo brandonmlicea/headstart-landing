@@ -14,8 +14,10 @@ mkdir my-startup && cd my-startup
 git clone --depth 1 https://github.com/brandonmlicea/headstart-landing landing
 git clone --depth 1 https://github.com/brandonmlicea/headstart-product product
 cd landing && pnpm install
-./fill            # walk the form in the terminal
-pnpm dev          # http://localhost:4321
+./fill list                  # every blank still REQUIRED
+./fill --from answers.json   # fill them all at once (agents)
+./fill                       # or walk the form by hand (people, in a terminal)
+pnpm dev                     # http://localhost:4321
 ```
 
 Or press **Use this template** on GitHub for your own copy.

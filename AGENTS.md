@@ -10,11 +10,16 @@ This repo is a template. Every word on the site is a blank in `blanks.json`, and
 4. `./fill check` until it prints `ready`. `pnpm build` runs the same check first and stops if anything is missing.
 5. `pnpm dev`, open http://localhost:4321 and look at every section.
 
+Run both sites on one computer: set `link.app` to `http://localhost:5173` (and the product's `link.landing` to `http://localhost:4321`), then change them to the real domains before you deploy.
+
+`./fill check` here covers the blanks, the color contrast and every `b("key")`; `pnpm build` compiles every page. (`astro check` is left out: it crashes on Node 24 with Astro 7.)
+
 If you do not know an answer, ask the person. Do not invent facts: every stat needs its real source in `stat.N.source`.
 
 ## Writing rules
 
 - `*word*` sets a word in italics (headlines, titles, the mission). One or two italic words per line.
+- Hints say "the people you serve": a clinic's patients, a school's students, a caregiver. Write for whoever your startup serves.
 - Icons are a choice: home, doctor, video, heart, leaf, chat, shield, chart, pill, family.
 - Respect each blank's `max`. The layout was drawn for those lengths.
 
