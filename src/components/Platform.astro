@@ -16,13 +16,13 @@ const rays = range(8).map((i) => {
         <span class="row flex h-8 items-center gap-2 px-2 text-[11px] text-body"><span class="grid size-5 place-items-center rounded-full bg-surface font-mono text-[8px]">{initials}</span>{name}<span class="text-muted">⌄</span></span>
         <span class="font-mono text-[10px] text-muted">Z 60%</span>
       </div>
-      <svg class="absolute inset-0 m-auto h-full w-full" viewBox="0 0 600 400" fill="none">
-        <circle cx="300" cy="200" r="150" stroke="oklch(0 0 0 / 0.12)" />
+      <svg class="absolute inset-0 m-auto h-full w-full text-ink" viewBox="0 0 600 400" fill="none">
+        <circle cx="300" cy="200" r="150" stroke="currentColor" stroke-opacity="0.14" />
         {rays.map((r) => (
           <g>
-            <path d={`M300 200 L${r.x} ${r.y}`} stroke="oklch(0 0 0 / 0.14)" stroke-dasharray="3 4" />
-            <circle cx={r.x} cy={r.y} r="2.5" fill="var(--hs-raised)" stroke="oklch(0 0 0 / 0.2)" />
-            <rect x={r.nx - 26} y={r.ny - 16} width="52" height="32" rx="7" fill="var(--hs-raised)" stroke="oklch(0 0 0 / 0.08)" />
+            <path d={`M300 200 L${r.x} ${r.y}`} stroke="currentColor" stroke-opacity="0.16" stroke-dasharray="3 4" />
+            <circle cx={r.x} cy={r.y} r="2.5" fill="var(--hs-raised)" stroke="currentColor" stroke-opacity="0.25" />
+            <rect x={r.nx - 26} y={r.ny - 16} width="52" height="32" rx="7" fill="var(--hs-raised)" stroke="currentColor" stroke-opacity="0.1" />
             <circle r="2.2" fill="var(--hs-tone-1-ink)" data-pulse data-x1="300" data-y1="200" data-x2={r.x} data-y2={r.y} cx="300" cy="200" />
           </g>
         ))}

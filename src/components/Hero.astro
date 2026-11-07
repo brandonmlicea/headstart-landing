@@ -4,13 +4,13 @@ import Pixel from "./Pixel.astro";
 ---
 <section id="hero" class="relative h-[100svh] min-h-[640px] overflow-hidden" data-hero>
   <Pixel scene="meadow" w={480} h={270} seed={7} dissolve="bottom" class="absolute inset-0 size-full origin-top object-cover" data-hero-art />
-  <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.3_0.11_255/0.6),transparent_62%)] md:bg-[radial-gradient(70%_60%_at_15%_20%,oklch(0.32_0.11_255/0.62),transparent_70%)]" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.3_0.11_255/0.6),transparent_62%)] md:bg-[radial-gradient(75%_65%_at_15%_22%,oklch(0.3_0.11_255/0.72),transparent_72%)]" aria-hidden="true"></div>
   <div class="relative max-w-[37rem] px-5 pt-[116px] md:px-6">
     <h1 class="text-hero text-white [text-shadow:0_1px_12px_oklch(0.25_0.1_255/0.35)]" data-split data-now>{b("hero.title")}</h1>
     <p class="mt-5 max-w-[31rem] text-[15px] leading-[1.55] font-[560] text-white [text-shadow:0_1px_8px_oklch(0.25_0.1_255/0.45)]" data-reveal>{b("hero.sub")}</p>
     <div class="mt-6 flex flex-wrap gap-3" data-reveal>
       <a href={b("link.app")} id="hero-cta" class="btn btn-light h-[41px] px-3">{b("hero.cta")}</a>
-      <button type="button" id="hero-copy" class="btn btn-glass h-[41px] px-3 text-[15px] font-[560]" data-copy={b("hero.prompt")}>
+      <button type="button" id="hero-copy" class="btn btn-glass h-[41px] px-3 text-[15px] font-[560]" data-copy={b("hero.prompt").replaceAll("{app}", b("link.app"))}>
         <svg class="size-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5" /><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5" /></svg>
         <span data-copy-label>{b("hero.second")}</span>
       </button>

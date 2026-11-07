@@ -5,7 +5,7 @@
 - Astro 7, Tailwind 4 and GSAP, in a calm warm-neutral style: two-tone headlines, glass nav pills over a full-bleed pixel-art hero, product pictures built in HTML, numbered steps with accordion rows, chapter cards, a word search and a pixel-art footer. The pixel scenes are painted in code (`kit/pixel.mjs`), so there are no stock images to replace. Every effect respects reduced motion.
 - Every word is a blank in `blanks.json`. An empty blank renders as `REQUIRED: Brand name`, and `pnpm build` refuses to run until every blank holds a real answer. Filler like Lorem ipsum, John Doe, Acme or TBD is rejected.
 - One brand color in any CSS format (hex, rgb, hsl, oklch, oklab, lab, lch, srgb, display-p3) becomes the accent of a light and dark palette where every text pair passes WCAG 4.5:1 and APCA Lc 60.
-- Pairs with [headstart-product](https://github.com/brandonmlicea/headstart-product), the signed-in app with a voice, photo and text care assistant. Brand and links fill both at once.
+- Pairs with [headstart-product](https://github.com/brandonmlicea/headstart-product), the signed-in app with a voice, photo and text assistant. Brand and links fill both at once.
 
 ## Start
 

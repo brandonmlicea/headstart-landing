@@ -20,8 +20,8 @@ const pts = (p: number[][]) => p.map(([x, y]) => `${x},${y}`).join(" ");
     </div>
     <div class="mt-6 border-t border-line pt-4">
       <p class="text-[12px] text-ink">{b("step.3.item.4.title")}</p>
-      <svg class="mt-2 h-44 w-full" viewBox="0 0 480 190" preserveAspectRatio="none" aria-hidden="true">
-        {[50, 100, 150].map((y) => <line x1="0" x2="480" y1={y} y2={y} stroke="oklch(0 0 0 / 0.07)" />)}
+      <svg class="mt-2 h-44 w-full text-ink" viewBox="0 0 480 190" preserveAspectRatio="none" aria-hidden="true">
+        {[50, 100, 150].map((y) => <line x1="0" x2="480" y1={y} y2={y} stroke="currentColor" stroke-opacity="0.08" />)}
         <polyline points={pts(a)} fill="none" stroke="var(--hs-tone-2-ink)" stroke-width="2.4" stroke-linejoin="round" pathLength="1" data-line />
         <polyline points={pts(c)} fill="none" stroke="var(--hs-accent)" stroke-width="2.4" stroke-linejoin="round" pathLength="1" data-line />
       </svg>

@@ -10,17 +10,18 @@ This repo is a template. Every word on the site is a blank in `blanks.json`, and
 4. `./fill check` until it prints `ready`. `pnpm build` runs the same check first and stops if anything is missing.
 5. `pnpm dev`, open http://localhost:4321 and look at every section.
 
-Run both sites on one computer: set `link.app` to `http://localhost:5173` (and the product's `link.landing` to `http://localhost:4321`), then change them to the real domains before you deploy.
+Run both sites on one computer: set `link.app` to the product's local address (`http://localhost:5173` by default, or the port you start it on) and the product's `link.landing` to the landing's (`http://localhost:4321` by default), then change them to the real domains before you deploy.
 
 `./fill check` here covers the blanks, the color contrast and every `b("key")`; `pnpm build` compiles every page. (`astro check` is left out: it crashes on Node 24 with Astro 7.)
 
-If you do not know an answer, ask the person. Do not invent facts: every stat needs its real source in `stat.N.source`.
+If you do not know an answer, ask the person. Do not invent facts or customers: `proof.*` lists only what you can truthfully name, a statistic names its source in `proof.line`, and the numbers inside product pictures (`step.2.value`, `step.3.value.N`) read as examples of the product.
 
 ## Writing rules
 
 - Headlines are two-tone: the first half in ink, the second half in the lighter grey. Wrap the second half in `*stars*`: `Keep being family. *Let us handle the follow-up.*` In `mock.reply` the starred sentence is set in bold instead.
 - Lists (`mock.tabs`, `search.words`) are comma separated, with an exact count; `search.words` takes letters and spaces only.
-- `hero.prompt` is what the hero's copy button puts on the clipboard: a prompt people paste into their own AI assistant. Make it work on its own.
+- `hero.prompt` is what the hero's copy button puts on the clipboard: a prompt people paste into their own AI assistant. Write `{app}` where the product URL goes; it is filled from `link.app`, so it never goes stale.
+- `hero.art` picks the hero scene's props: `care` (clinic and medical bag), `learning` (school flag and books) or `plain`; they are painted in the brand color.
 - Hints say "the people you serve": a clinic's patients, a school's students, a caregiver. Write for whoever your startup serves.
 - Respect each blank's `max`. The layout was drawn for those lengths.
 

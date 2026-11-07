@@ -1,17 +1,19 @@
 ---
-import { b } from "../blanks";
+import { b, list } from "../blanks";
+const stages = list("board.stages");
+const status = list("board.status");
 const cards = [
-  { col: 0, i: 1, status: "Done", look: "done", top: 50 },
-  { col: 1, i: 2, status: "Agent task", look: "agent", top: 30 },
-  { col: 1, i: 3, status: "Needs approval", look: "approve", top: 52 },
-  { col: 2, i: 4, status: "Your task", look: "you", top: 16 },
+  { col: 0, i: 1, s: 0, look: "done", top: 50 },
+  { col: 1, i: 2, s: 1, look: "agent", top: 30 },
+  { col: 1, i: 3, s: 2, look: "approve", top: 52 },
+  { col: 2, i: 4, s: 3, look: "you", top: 16 },
 ];
 const ghosts = [[1, 14], [2, 32], [2, 48], [2, 82], [1, 76]];
 const icon: Record<string, string> = { done: "✓", agent: "✦", approve: "!", you: "•" };
 ---
-<div id="board" class="frame dots relative h-[420px] overflow-hidden p-2" aria-label="Care board" role="img">
+<div id="board" class="frame dots relative h-[420px] overflow-hidden p-2" aria-label={b("step.1.label")} role="img">
   <div class="grid h-full grid-cols-3 gap-2">
-    {["Stage 1", "Stage 2", "Stage 3"].map((label, c) => (
+    {[0, 1, 2].map((c) => stages[c] ?? "").map((label, c) => (
       <div class="relative rounded-[10px] border border-line/80 bg-surface/40">
         <div class="flex justify-between px-3 py-2.5 font-mono text-[10px] text-muted"><span>{label}</span><span>{c === 0 ? "1/1" : c === 1 ? "0/2" : "0/1"}</span></div>
         {ghosts.filter(([gc]) => gc === c).map(([, top]) => (
@@ -26,7 +28,7 @@ const icon: Record<string, string> = { done: "✓", agent: "✦", approve: "!", 
             <span class:list={["grid size-7 shrink-0 place-items-center rounded-md text-[11px]", k.look === "done" ? "bg-tone-2 text-tone-2-ink" : k.look === "approve" ? "bg-tone-3 text-tone-3-ink" : "bg-surface text-body"]}>{icon[k.look]}</span>
             <span class="min-w-0 flex-1">
               <span class="block truncate text-[11px] font-medium text-ink">{b(`step.1.item.${k.i}.title`)}</span>
-              <span class="block text-[10px] text-muted">{k.status}</span>
+              <span class="block text-[10px] text-muted">{status[k.s] ?? ""}</span>
             </span>
             <span class="grid size-5 place-items-center rounded border border-line text-[9px] text-muted">→</span>
           </div>

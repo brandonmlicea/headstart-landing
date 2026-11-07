@@ -125,52 +125,63 @@
     },
     "hero.prompt": {
       "ask": "Setup prompt",
-      "hint": "The text the copy button puts on the clipboard: a prompt someone pastes into their own AI assistant to get started with you. Name the product, what to ask, and the URL.",
+      "hint": "The text the copy button puts on the clipboard: a prompt someone pastes into their own AI assistant to get started with you. Write {app} where the product URL goes; it is filled from link.app.",
       "kind": "text",
       "max": 1200,
       "min": 80,
       "value": ""
     },
+    "hero.art": {
+      "ask": "Hero picture props",
+      "hint": "What the pixel scene shows: care (a clinic with a cross and a medical bag), learning (a school flag and a stack of books) or plain (just the landscape). The prop is painted in your brand color.",
+      "kind": "choice",
+      "options": [
+        "care",
+        "learning",
+        "plain"
+      ],
+      "value": ""
+    },
     "proof.1": {
       "ask": "Proof name 1",
-      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
+      "hint": "Something you can truthfully list: a standard you follow, a tool or system you work with, a partner or pilot site that agreed to be named. Never invent customers.",
       "kind": "text",
       "max": 20,
       "value": ""
     },
     "proof.2": {
       "ask": "Proof name 2",
-      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
+      "hint": "Something you can truthfully list: a standard you follow, a tool or system you work with, a partner or pilot site that agreed to be named. Never invent customers.",
       "kind": "text",
       "max": 20,
       "value": ""
     },
     "proof.3": {
       "ask": "Proof name 3",
-      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
+      "hint": "Something you can truthfully list: a standard you follow, a tool or system you work with, a partner or pilot site that agreed to be named. Never invent customers.",
       "kind": "text",
       "max": 20,
       "value": ""
     },
     "proof.4": {
       "ask": "Proof name 4",
-      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
+      "hint": "Something you can truthfully list: a standard you follow, a tool or system you work with, a partner or pilot site that agreed to be named. Never invent customers.",
       "kind": "text",
       "max": 20,
       "value": ""
     },
     "proof.count": {
       "ask": "Proof number",
-      "hint": "A real figure, digits with commas (shown in bold).",
+      "hint": "A true figure, shown in bold: a count, a percentage or a sourced statistic.",
       "kind": "text",
       "max": 12,
       "value": ""
     },
     "proof.line": {
       "ask": "Proof sentence",
-      "hint": "The words after the number, such as who has used you.",
+      "hint": "The words after the figure. If it is a statistic, name its source here in brackets.",
       "kind": "text",
-      "max": 60,
+      "max": 90,
       "value": ""
     },
     "platform.title": {
@@ -395,6 +406,28 @@
       "min": 30,
       "value": ""
     },
+    "board.stages": {
+      "ask": "Board picture: column names",
+      "hint": "Three short stage names across the board picture beside step 1, separated by commas.",
+      "kind": "list",
+      "items": [
+        3,
+        3
+      ],
+      "itemMax": 16,
+      "value": ""
+    },
+    "board.status": {
+      "ask": "Board picture: card states",
+      "hint": "Four short states for the cards on the board, in this order: finished, done by the product, waiting for approval, the person's own task. Separated by commas.",
+      "kind": "list",
+      "items": [
+        4,
+        4
+      ],
+      "itemMax": 16,
+      "value": ""
+    },
     "step.2.label": {
       "ask": "Step 2 label",
       "hint": "One word, shown as the mono eyebrow and in the nav.",
@@ -592,28 +625,28 @@
     },
     "step.2.value": {
       "ask": "Step 2 metric value",
-      "hint": "A number with its unit, such as a percentage.",
+      "hint": "The figure on the metric card inside the product picture, such as a percentage. It reads as an example of the product, not a claim.",
       "kind": "text",
       "max": 8,
       "value": ""
     },
     "step.3.value.1": {
       "ask": "Step 3 tile 1 value",
-      "hint": "The number on dashboard tile 1; its label is step 3 item 1.",
+      "hint": "The number on dashboard tile 1 inside the product picture (its label is step 3 item 1). It reads as an example of the product, not a claim.",
       "kind": "text",
       "max": 10,
       "value": ""
     },
     "step.3.value.2": {
       "ask": "Step 3 tile 2 value",
-      "hint": "The number on dashboard tile 2; its label is step 3 item 2.",
+      "hint": "The number on dashboard tile 2 inside the product picture (its label is step 3 item 2). It reads as an example of the product, not a claim.",
       "kind": "text",
       "max": 10,
       "value": ""
     },
     "step.3.value.3": {
       "ask": "Step 3 tile 3 value",
-      "hint": "The number on dashboard tile 3; its label is step 3 item 3.",
+      "hint": "The number on dashboard tile 3 inside the product picture (its label is step 3 item 3). It reads as an example of the product, not a claim.",
       "kind": "text",
       "max": 10,
       "value": ""

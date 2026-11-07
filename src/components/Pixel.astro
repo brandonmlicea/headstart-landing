@@ -1,6 +1,12 @@
 ---
+import { parse, format } from "../../kit/color.mjs";
+import { b } from "../blanks";
 interface Props { scene: string; w?: number; h?: number; seed?: number; dissolve?: string; flip?: boolean; class?: string; label?: string }
 const { scene, w = 160, h = 120, seed = 7, dissolve = "", flip = false, class: cls = "", label } = Astro.props;
+const art = b("hero.art");
+const props = ["care", "learning", "plain"].includes(art) ? art : "plain";
+let accent = "#2f8f83";
+try { accent = format(parse(b("brand.color")), "hex").slice(0, 7); } catch {}
 ---
 <canvas
   class:list={["pixel block", cls]}
@@ -12,6 +18,8 @@ const { scene, w = 160, h = 120, seed = 7, dissolve = "", flip = false, class: c
   data-seed={seed}
   data-dissolve={dissolve}
   data-flip={String(flip)}
+  data-props={props}
+  data-accent={accent}
   role={label ? "img" : undefined}
   aria-label={label}
   aria-hidden={label ? undefined : "true"}
