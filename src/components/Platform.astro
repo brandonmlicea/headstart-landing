@@ -1,0 +1,58 @@
+---
+import { b, tone, list, range } from "../blanks";
+const name = b("brand.name");
+const initials = name.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+const tabs = list("mock.tabs");
+const rays = range(8).map((i) => {
+  const a = (i / 8) * Math.PI * 2 - Math.PI / 2;
+  return { x: 300 + Math.cos(a) * 150, y: 200 + Math.sin(a) * 150, nx: 300 + Math.cos(a) * 230, ny: 200 + Math.sin(a) * 175 };
+});
+---
+<section id="platform" class="px-5 py-24 md:px-6">
+  <h2 class="mx-auto max-w-[26ch] text-center text-h2 text-ink" data-reveal set:html={tone(b("platform.title"))} />
+  <div id="platform-mock" class="frame mx-auto mt-16 grid max-w-[68rem] gap-2 p-2 md:h-[440px] md:grid-cols-[1.45fr_1fr]" data-reveal>
+    <div class="dots relative hidden overflow-hidden rounded-[12px] bg-surface/60 md:block" aria-hidden="true">
+      <div class="absolute left-3 top-3 flex items-center gap-3">
+        <span class="row flex h-8 items-center gap-2 px-2 text-[11px] text-body"><span class="grid size-5 place-items-center rounded-full bg-surface font-mono text-[8px]">{initials}</span>{name}<span class="text-muted">⌄</span></span>
+        <span class="font-mono text-[10px] text-muted">Z 60%</span>
+      </div>
+      <svg class="absolute inset-0 m-auto h-full w-full" viewBox="0 0 600 400" fill="none">
+        <circle cx="300" cy="200" r="150" stroke="oklch(0 0 0 / 0.12)" />
+        {rays.map((r) => (
+          <g>
+            <path d={`M300 200 L${r.x} ${r.y}`} stroke="oklch(0 0 0 / 0.14)" stroke-dasharray="3 4" />
+            <circle cx={r.x} cy={r.y} r="2.5" fill="var(--hs-raised)" stroke="oklch(0 0 0 / 0.2)" />
+            <rect x={r.nx - 26} y={r.ny - 16} width="52" height="32" rx="7" fill="var(--hs-raised)" stroke="oklch(0 0 0 / 0.08)" />
+            <circle r="2.2" fill="var(--hs-tone-1-ink)" data-pulse data-x1="300" data-y1="200" data-x2={r.x} data-y2={r.y} cx="300" cy="200" />
+          </g>
+        ))}
+        <path d="M300 214s-13-7.8-13-17.2a7 7 0 0 1 13-3.9 7 7 0 0 1 13 3.9c0 9.4-13 17.2-13 17.2Z" fill="var(--hs-accent)" stroke="var(--hs-accent-ink)" stroke-width="1.2" />
+      </svg>
+    </div>
+    <div class="flex min-h-[420px] flex-col rounded-[12px] border border-line bg-raised">
+      <div class="flex gap-1 border-b border-line p-2.5 text-[11px] text-body">
+        {tabs.map((t, i) => <span class:list={["rounded-md px-2 py-1", i === 0 && "border border-line bg-surface text-ink"]}>{t}</span>)}
+      </div>
+      <div class="flex flex-1 flex-col gap-4 overflow-hidden p-3 text-left text-[12px] leading-[1.5]">
+        <p class="ml-auto max-w-[85%] rounded-[10px] border border-line bg-surface px-3 py-2 text-ink">{b("mock.user")}</p>
+        <div class="flex gap-2 text-body">
+          <span class="mt-0.5 font-mono text-[10px] text-muted" aria-hidden="true">::</span>
+          <p class="[&_strong]:font-[620] [&_strong]:text-ink" set:html={tone(b("mock.reply"), "strong")} />
+        </div>
+        <div class="flex items-center gap-2 rounded-[8px] border border-line px-2.5 py-2 text-[11px]">
+          <span class="size-3 animate-spin rounded-full border-[1.5px] border-tone-1-ink border-t-transparent" aria-hidden="true"></span>
+          <strong class="font-[560] text-ink">{b("mock.agent")}</strong>
+          <span class="flex-1 truncate text-muted">{b("mock.task")}</span>
+          <span class="rounded bg-tone-1 px-1.5 py-0.5 text-[10px] text-tone-1-ink">Running</span>
+        </div>
+      </div>
+      <div class="m-2 flex h-11 items-center rounded-[10px] border border-line bg-raised pl-3 pr-1.5 text-[11px] text-muted shadow-[0_1px_3px_oklch(0_0_0/0.05)]">
+        <span class="flex-1 truncate">{b("mock.input")}</span>
+        <span class="btn btn-dark grid size-7 place-items-center p-0 text-[13px]" aria-hidden="true">↑</span>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto mt-12 grid max-w-[68rem] gap-8 text-body text-body md:grid-cols-3" data-stagger>
+    {range(3).map((i) => <p><strong class="font-[560] text-ink">{b(`feature.${i}.title`)}</strong> — {b(`feature.${i}.body`)}</p>)}
+  </div>
+</section>

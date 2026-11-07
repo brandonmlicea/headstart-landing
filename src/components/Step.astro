@@ -1,0 +1,25 @@
+---
+import { b, tone, range } from "../blanks";
+interface Props { s: 1 | 2 | 3; flip?: boolean }
+const { s, flip = false } = Astro.props;
+---
+<section id={`step-${s}`} class:list={["mx-auto grid max-w-[68rem] items-center gap-12 px-5 py-24 md:px-6 lg:gap-16", flip ? "lg:grid-cols-[1fr_21.5rem]" : "lg:grid-cols-[21.5rem_1fr]"]}>
+  <div class:list={[flip && "lg:order-2"]}>
+    <p class="eyebrow" data-reveal>{s}.0 — {b(`step.${s}.label`)}</p>
+    <h2 class="mt-6 text-[2rem] leading-[1.25] text-ink" data-reveal set:html={tone(b(`step.${s}.title`))} />
+    <p class="mt-5 text-body text-body" data-reveal>{b(`step.${s}.body`)}</p>
+    <div class="mt-8 space-y-2" data-stagger>
+      {range(4).map((m) => (
+        <details class="row group/row" name={`step-${s}`}>
+          <summary class="flex cursor-pointer list-none items-center gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
+            <span class="w-6 font-mono text-[11px] text-muted">{s}.{m}</span>
+            <span class="flex-1 text-row font-medium text-ink">{b(`step.${s}.item.${m}.title`)}</span>
+            <svg class="size-3.5 text-muted transition-transform duration-300 group-open/row:rotate-45" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M7 2v10M2 7h10" /></svg>
+          </summary>
+          <p class="px-4 pb-4 pl-[3.25rem] text-[13px] leading-[1.55] text-body">{b(`step.${s}.item.${m}.body`)}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+  <div class:list={["min-w-0", flip && "lg:order-1"]} data-reveal><slot /></div>
+</section>

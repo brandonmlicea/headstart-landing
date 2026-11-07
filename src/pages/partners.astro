@@ -1,43 +1,39 @@
 ---
 import Base from "../layouts/Base.astro";
-import Button from "../components/Button.astro";
-import Icon from "../components/Icon.astro";
-import Stats from "../components/Stats.astro";
-import Cta from "../components/Cta.astro";
-import { b, em, words, range } from "../blanks";
+import Band from "../components/Band.astro";
+import Pixel from "../components/Pixel.astro";
+import { b, tone, range } from "../blanks";
+const scenes = ["dawn", "noon", "dusk"];
 ---
-<Base title={b("nav.partners")}>
-  <section id="partners-hero" class="flex min-h-[80svh] flex-col items-center justify-center px-6 pb-12 pt-32 text-center">
-    <h1 class="max-w-[16ch] text-h1" data-split data-now set:html={words(b("partners.title"))} />
-    <p class="mt-10 max-w-xl text-lead text-muted" data-reveal>{b("partners.body")}</p>
-    <div class="mt-9" data-reveal><Button href={`mailto:${b("link.email")}`}>{b("partners.cta")}</Button></div>
-  </section>
-
-  <section id="benefits" class="mx-auto max-w-[64rem] space-y-6 px-6 py-16">
-    {range(3).map((i) => (
-      <article class:list={["grid items-center gap-8 rounded-[1.75rem] p-8 md:grid-cols-2 md:p-12", i % 2 === 0 && "md:[&>*:first-child]:order-2"]} style={`background: var(--hs-tone-${i + 1})`} data-reveal>
-        <div class="grid aspect-[4/3] place-items-center rounded-2xl bg-canvas/60"><Icon name={b(`benefit.${i}.icon`)} class="size-32 text-ink" /></div>
-        <div>
-          <h2 class="text-h2">{b(`benefit.${i}.title`)}</h2>
-          <p class="mt-5 max-w-md">{b(`benefit.${i}.body`)}</p>
-        </div>
-      </article>
-    ))}
-  </section>
-
-  <section id="why" class="mx-auto max-w-[64rem] px-6 py-24">
-    <h2 class="mx-auto max-w-[14ch] text-center text-h2" data-split set:html={words(b("why.title"))} />
-    <div class="mt-14 grid gap-4 md:grid-cols-3" data-stagger>
-      {range(3).map((i) => (
-        <article class="rounded-2xl border border-line bg-raised p-7">
-          <p class="font-display text-h3 text-accent-ink">0{i}</p>
-          <h3 class="mt-8 text-h3" set:html={em(b(`why.${i}.title`))} />
-          <p class="mt-4 text-[0.95rem] text-muted">{b(`why.${i}.body`)}</p>
-        </article>
-      ))}
+<Base title={b("nav.partners")} solid>
+  <section id="partners-hero" class="mx-auto max-w-[68rem] px-5 pb-16 pt-44 md:px-6">
+    <p class="eyebrow" data-reveal>{b("nav.partners")}</p>
+    <h1 class="mt-6 max-w-[20ch] text-hero text-ink" data-reveal set:html={tone(b("partners.title"))} />
+    <p class="mt-6 max-w-xl text-body text-body" data-reveal>{b("partners.body")}</p>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href={`mailto:${b("link.email")}`} id="partners-cta" class="btn btn-dark">{b("partners.cta")}</a>
+      <a href={b("link.app")} class="btn btn-light">{b("nav.cta")}</a>
     </div>
   </section>
 
-  <Stats />
-  <Cta />
+  {range(3).map((i) => (
+    <section id={`benefit-${i}`} class="mx-auto grid max-w-[68rem] items-center gap-12 px-5 py-16 md:px-6 lg:grid-cols-2">
+      <div class:list={[i === 2 && "lg:order-2"]}>
+        <p class="eyebrow" data-reveal>0{i} — {b("nav.partners")}</p>
+        <h2 class="mt-6 text-[2rem] leading-[1.25] text-ink" data-reveal set:html={tone(b(`benefit.${i}.title`))} />
+        <p class="mt-5 max-w-md text-body text-body" data-reveal>{b(`benefit.${i}.body`)}</p>
+      </div>
+      <div class="frame p-3" data-reveal>
+        <Pixel scene={scenes[i - 1]} w={160} h={100} seed={20 + i} class="aspect-[16/10] w-full rounded-[10px]" />
+      </div>
+    </section>
+  ))}
+
+  <section id="why" class="mx-auto max-w-[68rem] px-5 py-24 md:px-6">
+    <h2 class="max-w-[20ch] text-h2 text-ink" data-reveal set:html={tone(b("why.title"))} />
+    <div class="mt-12 grid gap-8 text-body text-body md:grid-cols-3" data-stagger>
+      {range(3).map((i) => <p><strong class="font-[560] text-ink">{b(`why.${i}.title`)}</strong> — {b(`why.${i}.body`)}</p>)}
+    </div>
+  </section>
+  <Band />
 </Base>

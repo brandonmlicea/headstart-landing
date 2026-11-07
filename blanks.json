@@ -10,14 +10,14 @@
   "blanks": {
     "brand.name": {
       "ask": "Brand name",
-      "hint": "The company name shown in the nav, the title and the footer.",
+      "hint": "The company name: the serif wordmark in the nav, the title and the footer.",
       "kind": "text",
-      "max": 28,
+      "max": 24,
       "value": ""
     },
     "brand.tagline": {
       "ask": "Brand tagline",
-      "hint": "One line that says what you do and for whom. Used in search results and the footer.",
+      "hint": "One line that says what you do and for whom. Used in search results.",
       "kind": "text",
       "max": 120,
       "min": 20,
@@ -25,7 +25,7 @@
     },
     "brand.color": {
       "ask": "Brand color",
-      "hint": "Any CSS color: hex, rgb(), hsl(), oklch(), oklab(), lab(), lch(), color(srgb ...) or color(display-p3 ...). Every other color is derived from it and checked for AA contrast.",
+      "hint": "Any CSS color: hex, rgb(), hsl(), oklch(), oklab(), lab(), lch(), color(srgb ...) or color(display-p3 ...). It becomes the accent; the rest of the page stays warm neutral, and every pair is checked for AA contrast.",
       "kind": "color",
       "value": ""
     },
@@ -33,7 +33,6 @@
       "ask": "Color format",
       "hint": "How the generated tokens are written in CSS. Both sites use the same one.",
       "kind": "format",
-      "value": "",
       "options": [
         "hex",
         "rgb",
@@ -44,7 +43,8 @@
         "lab",
         "lch",
         "p3"
-      ]
+      ],
+      "value": ""
     },
     "brand.location": {
       "ask": "City and region",
@@ -55,14 +55,35 @@
     },
     "link.app": {
       "ask": "Product URL",
-      "hint": "The full address of the private product app, for every Open app button. Running both on this computer: http://localhost:5173.",
+      "hint": "The full address of the private product app, for every main button. Running both on this computer: http://localhost:5173.",
       "kind": "url",
       "value": ""
     },
     "link.email": {
       "ask": "Contact email",
-      "hint": "Where patients and partners write to.",
+      "hint": "Where people and partners write to.",
       "kind": "email",
+      "value": ""
+    },
+    "nav.lead": {
+      "ask": "Nav group label",
+      "hint": "One or two words in front of the three step links in the nav, set lighter.",
+      "kind": "text",
+      "max": 14,
+      "value": ""
+    },
+    "nav.guide": {
+      "ask": "Nav label for the guide",
+      "hint": "One or two words for the link to the guide chapters.",
+      "kind": "text",
+      "max": 16,
+      "value": ""
+    },
+    "nav.partners": {
+      "ask": "Nav label for the partners page",
+      "hint": "One to three words for the link to /partners.",
+      "kind": "text",
+      "max": 20,
       "value": ""
     },
     "nav.cta": {
@@ -72,698 +93,685 @@
       "max": 20,
       "value": ""
     },
-    "nav.care": {
-      "ask": "Nav label for the pillars",
-      "hint": "One or two words for the link to the pinned cards under the hero.",
+    "hero.title": {
+      "ask": "Hero headline",
+      "hint": "Six to twelve words that say what people can do with you, set in white over the pixel scene.",
       "kind": "text",
-      "max": 16,
-      "value": ""
-    },
-    "nav.services": {
-      "ask": "Nav label for services",
-      "hint": "One or two words for the link to the services grid; also used in the footer.",
-      "kind": "text",
-      "max": 16,
-      "value": ""
-    },
-    "nav.approach": {
-      "ask": "Nav label for approach",
-      "hint": "One or two words for the link to the approach cards.",
-      "kind": "text",
-      "max": 16,
-      "value": ""
-    },
-    "nav.partners": {
-      "ask": "Nav label for the partners page",
-      "hint": "One to three words for the link to /partners; also used in the footer.",
-      "kind": "text",
-      "max": 20,
-      "value": ""
-    },
-    "footer.visit": {
-      "ask": "Footer heading over the site links",
-      "hint": "One or two words.",
-      "kind": "text",
-      "max": 20,
-      "value": ""
-    },
-    "footer.reach": {
-      "ask": "Footer heading over email and location",
-      "hint": "One to three words.",
-      "kind": "text",
-      "max": 20,
-      "value": ""
-    },
-    "hero.lead": {
-      "ask": "Headline, words before the italic word",
-      "hint": "The first part of the hero headline.",
-      "kind": "text",
-      "max": 28,
-      "value": ""
-    },
-    "hero.em": {
-      "ask": "Headline italic word",
-      "hint": "One or two words, the heart of the promise, set in italics with the drawn arrow under them.",
-      "kind": "text",
-      "max": 16,
-      "value": ""
-    },
-    "hero.tail": {
-      "ask": "Headline, words after the italic word",
-      "hint": "The rest of the hero headline.",
-      "kind": "text",
-      "max": 40,
+      "max": 80,
+      "min": 20,
       "value": ""
     },
     "hero.sub": {
       "ask": "Hero sentence",
-      "hint": "One sentence under the headline that says who you serve and how.",
+      "hint": "One or two sentences on how it works.",
       "kind": "text",
-      "max": 160,
-      "min": 30,
+      "max": 170,
+      "min": 40,
       "value": ""
     },
     "hero.cta": {
       "ask": "Hero button label",
-      "hint": "The main call to action, two to four words.",
+      "hint": "Two to four words on the light button that opens the product.",
       "kind": "text",
-      "max": 24,
+      "max": 22,
       "value": ""
     },
     "hero.second": {
-      "ask": "Hero second button label",
-      "hint": "Two or three words on the outlined button that scrolls to the services.",
+      "ask": "Copy-prompt button label",
+      "hint": "Two to four words on the glass button that copies the setup prompt.",
       "kind": "text",
       "max": 24,
       "value": ""
     },
-    "pillar.1.icon": {
-      "ask": "Pillar 1 icon",
-      "hint": "Line drawing on this pillar's card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "pillar.1.title": {
-      "ask": "Pillar 1 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
+    "hero.prompt": {
+      "ask": "Setup prompt",
+      "hint": "The text the copy button puts on the clipboard: a prompt someone pastes into their own AI assistant to get started with you. Name the product, what to ask, and the URL.",
       "kind": "text",
-      "max": 40,
-      "value": ""
-    },
-    "pillar.1.body": {
-      "ask": "Pillar 1 text",
-      "hint": "Two sentences on what the people you serve get.",
-      "kind": "text",
-      "max": 240,
-      "min": 40,
-      "value": ""
-    },
-    "pillar.2.icon": {
-      "ask": "Pillar 2 icon",
-      "hint": "Line drawing on this pillar's card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "pillar.2.title": {
-      "ask": "Pillar 2 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 40,
-      "value": ""
-    },
-    "pillar.2.body": {
-      "ask": "Pillar 2 text",
-      "hint": "Two sentences on what the people you serve get.",
-      "kind": "text",
-      "max": 240,
-      "min": 40,
-      "value": ""
-    },
-    "pillar.3.icon": {
-      "ask": "Pillar 3 icon",
-      "hint": "Line drawing on this pillar's card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "pillar.3.title": {
-      "ask": "Pillar 3 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 40,
-      "value": ""
-    },
-    "pillar.3.body": {
-      "ask": "Pillar 3 text",
-      "hint": "Two sentences on what the people you serve get.",
-      "kind": "text",
-      "max": 240,
-      "min": 40,
-      "value": ""
-    },
-    "pillar.4.icon": {
-      "ask": "Pillar 4 icon",
-      "hint": "Line drawing on this pillar's card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "pillar.4.title": {
-      "ask": "Pillar 4 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 40,
-      "value": ""
-    },
-    "pillar.4.body": {
-      "ask": "Pillar 4 text",
-      "hint": "Two sentences on what the people you serve get.",
-      "kind": "text",
-      "max": 240,
-      "min": 40,
-      "value": ""
-    },
-    "intro.eyebrow": {
-      "ask": "Intro eyebrow",
-      "hint": "A short line above the intro statement.",
-      "kind": "text",
-      "max": 48,
-      "value": ""
-    },
-    "intro.statement": {
-      "ask": "Intro statement",
-      "hint": "Six to twelve words, your stance on care. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 90,
-      "value": ""
-    },
-    "intro.body": {
-      "ask": "Intro paragraph",
-      "hint": "Three to four sentences on your mission and what you offer.",
-      "kind": "text",
-      "max": 420,
+      "max": 1200,
       "min": 80,
       "value": ""
     },
-    "services.eyebrow": {
-      "ask": "Services eyebrow",
-      "hint": "The small label on the services intro card.",
-      "kind": "text",
-      "max": 32,
-      "value": ""
-    },
-    "services.title": {
-      "ask": "Services title",
-      "hint": "Three to six words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 48,
-      "value": ""
-    },
-    "services.body": {
-      "ask": "Services intro",
-      "hint": "Two sentences that frame the services below.",
-      "kind": "text",
-      "max": 240,
-      "min": 40,
-      "value": ""
-    },
-    "service.1.title": {
-      "ask": "Service 1 name",
-      "hint": "The name of one service, program or feature you offer.",
-      "kind": "text",
-      "max": 36,
-      "value": ""
-    },
-    "service.1.body": {
-      "ask": "Service 1 description",
-      "hint": "One or two sentences on what it includes.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "service.2.title": {
-      "ask": "Service 2 name",
-      "hint": "The name of one service, program or feature you offer.",
-      "kind": "text",
-      "max": 36,
-      "value": ""
-    },
-    "service.2.body": {
-      "ask": "Service 2 description",
-      "hint": "One or two sentences on what it includes.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "service.3.title": {
-      "ask": "Service 3 name",
-      "hint": "The name of one service, program or feature you offer.",
-      "kind": "text",
-      "max": 36,
-      "value": ""
-    },
-    "service.3.body": {
-      "ask": "Service 3 description",
-      "hint": "One or two sentences on what it includes.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "service.4.title": {
-      "ask": "Service 4 name",
-      "hint": "The name of one service, program or feature you offer.",
-      "kind": "text",
-      "max": 36,
-      "value": ""
-    },
-    "service.4.body": {
-      "ask": "Service 4 description",
-      "hint": "One or two sentences on what it includes.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "service.5.title": {
-      "ask": "Service 5 name",
-      "hint": "The name of one service, program or feature you offer.",
-      "kind": "text",
-      "max": 36,
-      "value": ""
-    },
-    "service.5.body": {
-      "ask": "Service 5 description",
-      "hint": "One or two sentences on what it includes.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "approach.title": {
-      "ask": "Approach title",
-      "hint": "Three to six words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 48,
-      "value": ""
-    },
-    "approach.body": {
-      "ask": "Approach intro",
-      "hint": "One sentence on how you deliver care differently.",
-      "kind": "text",
-      "max": 160,
-      "min": 30,
-      "value": ""
-    },
-    "approach.eyebrow": {
-      "ask": "Approach card label",
-      "hint": "The small label on each approach card.",
-      "kind": "text",
-      "max": 28,
-      "value": ""
-    },
-    "approach.1.icon": {
-      "ask": "Approach 1 icon",
-      "hint": "Line drawing on this card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "approach.1.title": {
-      "ask": "Approach 1 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 44,
-      "value": ""
-    },
-    "approach.1.body": {
-      "ask": "Approach 1 text",
-      "hint": "One or two sentences.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "approach.2.icon": {
-      "ask": "Approach 2 icon",
-      "hint": "Line drawing on this card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "approach.2.title": {
-      "ask": "Approach 2 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 44,
-      "value": ""
-    },
-    "approach.2.body": {
-      "ask": "Approach 2 text",
-      "hint": "One or two sentences.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "approach.3.icon": {
-      "ask": "Approach 3 icon",
-      "hint": "Line drawing on this card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "approach.3.title": {
-      "ask": "Approach 3 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 44,
-      "value": ""
-    },
-    "approach.3.body": {
-      "ask": "Approach 3 text",
-      "hint": "One or two sentences.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "approach.4.icon": {
-      "ask": "Approach 4 icon",
-      "hint": "Line drawing on this card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "approach.4.title": {
-      "ask": "Approach 4 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 44,
-      "value": ""
-    },
-    "approach.4.body": {
-      "ask": "Approach 4 text",
-      "hint": "One or two sentences.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "approach.5.icon": {
-      "ask": "Approach 5 icon",
-      "hint": "Line drawing on this card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "approach.5.title": {
-      "ask": "Approach 5 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 44,
-      "value": ""
-    },
-    "approach.5.body": {
-      "ask": "Approach 5 text",
-      "hint": "One or two sentences.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "approach.6.icon": {
-      "ask": "Approach 6 icon",
-      "hint": "Line drawing on this card.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
-    "approach.6.title": {
-      "ask": "Approach 6 title",
-      "hint": "Two to five words. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 44,
-      "value": ""
-    },
-    "approach.6.body": {
-      "ask": "Approach 6 text",
-      "hint": "One or two sentences.",
-      "kind": "text",
-      "max": 200,
-      "min": 30,
-      "value": ""
-    },
-    "stats.title": {
-      "ask": "Stats title",
-      "hint": "Four to eight words on the need you meet. Wrap the one or two words to set in italics in *stars*.",
-      "kind": "text",
-      "max": 72,
-      "value": ""
-    },
-    "stat.1.value": {
-      "ask": "Stat 1 number",
-      "hint": "The figure itself, digits with any $ or % sign, from a real source.",
-      "kind": "text",
-      "max": 10,
-      "value": ""
-    },
-    "stat.1.unit": {
-      "ask": "Stat 1 unit",
-      "hint": "The short word after the number, the scale or what is counted.",
+    "proof.1": {
+      "ask": "Proof name 1",
+      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
       "kind": "text",
       "max": 20,
       "value": ""
     },
-    "stat.1.label": {
-      "ask": "Stat 1 meaning",
-      "hint": "One sentence on what the number means.",
-      "kind": "text",
-      "max": 160,
-      "min": 20,
-      "value": ""
-    },
-    "stat.1.source": {
-      "ask": "Stat 1 source",
-      "hint": "The citation: author or organisation, title, year.",
-      "kind": "text",
-      "max": 200,
-      "min": 10,
-      "value": ""
-    },
-    "stat.2.value": {
-      "ask": "Stat 2 number",
-      "hint": "The figure itself, digits with any $ or % sign, from a real source.",
-      "kind": "text",
-      "max": 10,
-      "value": ""
-    },
-    "stat.2.unit": {
-      "ask": "Stat 2 unit",
-      "hint": "The short word after the number, the scale or what is counted.",
+    "proof.2": {
+      "ask": "Proof name 2",
+      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
       "kind": "text",
       "max": 20,
       "value": ""
     },
-    "stat.2.label": {
-      "ask": "Stat 2 meaning",
-      "hint": "One sentence on what the number means.",
-      "kind": "text",
-      "max": 160,
-      "min": 20,
-      "value": ""
-    },
-    "stat.2.source": {
-      "ask": "Stat 2 source",
-      "hint": "The citation: author or organisation, title, year.",
-      "kind": "text",
-      "max": 200,
-      "min": 10,
-      "value": ""
-    },
-    "stat.3.value": {
-      "ask": "Stat 3 number",
-      "hint": "The figure itself, digits with any $ or % sign, from a real source.",
-      "kind": "text",
-      "max": 10,
-      "value": ""
-    },
-    "stat.3.unit": {
-      "ask": "Stat 3 unit",
-      "hint": "The short word after the number, the scale or what is counted.",
+    "proof.3": {
+      "ask": "Proof name 3",
+      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
       "kind": "text",
       "max": 20,
       "value": ""
     },
-    "stat.3.label": {
-      "ask": "Stat 3 meaning",
-      "hint": "One sentence on what the number means.",
+    "proof.4": {
+      "ask": "Proof name 4",
+      "hint": "A real clinic, school, partner, pilot site or integration you work with, as a short wordmark.",
       "kind": "text",
-      "max": 160,
+      "max": 20,
+      "value": ""
+    },
+    "proof.count": {
+      "ask": "Proof number",
+      "hint": "A real figure, digits with commas (shown in bold).",
+      "kind": "text",
+      "max": 12,
+      "value": ""
+    },
+    "proof.line": {
+      "ask": "Proof sentence",
+      "hint": "The words after the number, such as who has used you.",
+      "kind": "text",
+      "max": 60,
+      "value": ""
+    },
+    "platform.title": {
+      "ask": "Platform headline",
+      "hint": "Ten to sixteen words on what the product is. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 110,
+      "min": 30,
+      "value": ""
+    },
+    "mock.tabs": {
+      "ask": "Product mock tabs",
+      "hint": "Five short tab names across the top of the product picture, separated by commas.",
+      "kind": "list",
+      "items": [
+        5,
+        5
+      ],
+      "itemMax": 12,
+      "value": ""
+    },
+    "mock.user": {
+      "ask": "Product mock: first message",
+      "hint": "A realistic first message someone sends the assistant.",
+      "kind": "text",
+      "max": 110,
       "min": 20,
       "value": ""
     },
-    "stat.3.source": {
-      "ask": "Stat 3 source",
-      "hint": "The citation: author or organisation, title, year.",
-      "kind": "text",
-      "max": 200,
-      "min": 10,
-      "value": ""
-    },
-    "mission.text": {
-      "ask": "Mission statement",
-      "hint": "Two or three sentences that light up word by word as the reader scrolls. Wrap the one or two words to set in italics in *stars*.",
+    "mock.reply": {
+      "ask": "Product mock: reply",
+      "hint": "The assistant answer, two or three sentences. Wrap the last sentence in *stars* to set it in bold.",
       "kind": "text",
       "max": 320,
       "min": 60,
       "value": ""
     },
-    "cta.title": {
-      "ask": "Closing headline",
-      "hint": "Three to six words that invite action. Wrap the one or two words to set in italics in *stars*.",
+    "mock.agent": {
+      "ask": "Product mock: worker name",
+      "hint": "The name of the assistant or worker shown running a task.",
       "kind": "text",
-      "max": 48,
+      "max": 22,
       "value": ""
     },
-    "cta.body": {
-      "ask": "Closing sentence",
-      "hint": "One sentence under the closing headline.",
+    "mock.task": {
+      "ask": "Product mock: running task",
+      "hint": "What it is doing right now, a short phrase.",
       "kind": "text",
-      "max": 160,
+      "max": 60,
+      "value": ""
+    },
+    "mock.input": {
+      "ask": "Product mock: input placeholder",
+      "hint": "The grey placeholder in the message box.",
+      "kind": "text",
+      "max": 50,
+      "value": ""
+    },
+    "feature.1.title": {
+      "ask": "Feature 1 name",
+      "hint": "Two or three words, set in bold.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "feature.1.body": {
+      "ask": "Feature 1 sentence",
+      "hint": "One sentence after the dash.",
+      "kind": "text",
+      "max": 140,
+      "min": 30,
+      "value": ""
+    },
+    "feature.2.title": {
+      "ask": "Feature 2 name",
+      "hint": "Two or three words, set in bold.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "feature.2.body": {
+      "ask": "Feature 2 sentence",
+      "hint": "One sentence after the dash.",
+      "kind": "text",
+      "max": 140,
+      "min": 30,
+      "value": ""
+    },
+    "feature.3.title": {
+      "ask": "Feature 3 name",
+      "hint": "Two or three words, set in bold.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "feature.3.body": {
+      "ask": "Feature 3 sentence",
+      "hint": "One sentence after the dash.",
+      "kind": "text",
+      "max": 140,
+      "min": 30,
+      "value": ""
+    },
+    "band.title": {
+      "ask": "Call-out headline",
+      "hint": "Four to seven words.",
+      "kind": "text",
+      "max": 44,
+      "value": ""
+    },
+    "band.body": {
+      "ask": "Call-out sentence",
+      "hint": "One sentence under it.",
+      "kind": "text",
+      "max": 110,
       "min": 20,
       "value": ""
     },
-    "cta.button": {
-      "ask": "Closing button label",
-      "hint": "Two to four words.",
+    "band.cta": {
+      "ask": "Call-out button label",
+      "hint": "Two to four words on the dark button.",
       "kind": "text",
       "max": 24,
       "value": ""
     },
+    "story.title": {
+      "ask": "Story headline",
+      "hint": "Two short sentences: what you keep doing, what you hand over. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 110,
+      "min": 30,
+      "value": ""
+    },
+    "story.body": {
+      "ask": "Story paragraph",
+      "hint": "Two sentences.",
+      "kind": "text",
+      "max": 260,
+      "min": 60,
+      "value": ""
+    },
+    "step.1.label": {
+      "ask": "Step 1 label",
+      "hint": "One word, shown as the mono eyebrow and in the nav.",
+      "kind": "text",
+      "max": 12,
+      "value": ""
+    },
+    "step.1.title": {
+      "ask": "Step 1 headline",
+      "hint": "Six to twelve words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 80,
+      "min": 20,
+      "value": ""
+    },
+    "step.1.body": {
+      "ask": "Step 1 paragraph",
+      "hint": "Two or three sentences.",
+      "kind": "text",
+      "max": 300,
+      "min": 60,
+      "value": ""
+    },
+    "step.1.item.1.title": {
+      "ask": "Step 1 item 1",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.1.item.1.body": {
+      "ask": "Step 1 item 1 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.1.item.2.title": {
+      "ask": "Step 1 item 2",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.1.item.2.body": {
+      "ask": "Step 1 item 2 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.1.item.3.title": {
+      "ask": "Step 1 item 3",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.1.item.3.body": {
+      "ask": "Step 1 item 3 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.1.item.4.title": {
+      "ask": "Step 1 item 4",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.1.item.4.body": {
+      "ask": "Step 1 item 4 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.2.label": {
+      "ask": "Step 2 label",
+      "hint": "One word, shown as the mono eyebrow and in the nav.",
+      "kind": "text",
+      "max": 12,
+      "value": ""
+    },
+    "step.2.title": {
+      "ask": "Step 2 headline",
+      "hint": "Six to twelve words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 80,
+      "min": 20,
+      "value": ""
+    },
+    "step.2.body": {
+      "ask": "Step 2 paragraph",
+      "hint": "Two or three sentences.",
+      "kind": "text",
+      "max": 300,
+      "min": 60,
+      "value": ""
+    },
+    "step.2.item.1.title": {
+      "ask": "Step 2 item 1",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.2.item.1.body": {
+      "ask": "Step 2 item 1 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.2.item.2.title": {
+      "ask": "Step 2 item 2",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.2.item.2.body": {
+      "ask": "Step 2 item 2 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.2.item.3.title": {
+      "ask": "Step 2 item 3",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.2.item.3.body": {
+      "ask": "Step 2 item 3 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.2.item.4.title": {
+      "ask": "Step 2 item 4",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.2.item.4.body": {
+      "ask": "Step 2 item 4 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.3.label": {
+      "ask": "Step 3 label",
+      "hint": "One word, shown as the mono eyebrow and in the nav.",
+      "kind": "text",
+      "max": 12,
+      "value": ""
+    },
+    "step.3.title": {
+      "ask": "Step 3 headline",
+      "hint": "Six to twelve words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 80,
+      "min": 20,
+      "value": ""
+    },
+    "step.3.body": {
+      "ask": "Step 3 paragraph",
+      "hint": "Two or three sentences.",
+      "kind": "text",
+      "max": 300,
+      "min": 60,
+      "value": ""
+    },
+    "step.3.item.1.title": {
+      "ask": "Step 3 item 1",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.3.item.1.body": {
+      "ask": "Step 3 item 1 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.3.item.2.title": {
+      "ask": "Step 3 item 2",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.3.item.2.body": {
+      "ask": "Step 3 item 2 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.3.item.3.title": {
+      "ask": "Step 3 item 3",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.3.item.3.body": {
+      "ask": "Step 3 item 3 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "step.3.item.4.title": {
+      "ask": "Step 3 item 4",
+      "hint": "Two to four words; also used in the picture beside it.",
+      "kind": "text",
+      "max": 30,
+      "value": ""
+    },
+    "step.3.item.4.body": {
+      "ask": "Step 3 item 4 detail",
+      "hint": "One or two sentences shown when the row opens.",
+      "kind": "text",
+      "max": 200,
+      "min": 30,
+      "value": ""
+    },
+    "msg.to": {
+      "ask": "Message picture: to",
+      "hint": "Who the sample message goes to, a role rather than a real person.",
+      "kind": "text",
+      "max": 40,
+      "value": ""
+    },
+    "msg.subject": {
+      "ask": "Message picture: subject",
+      "hint": "A realistic subject line.",
+      "kind": "text",
+      "max": 60,
+      "value": ""
+    },
+    "msg.body": {
+      "ask": "Message picture: body",
+      "hint": "The first lines of the message, two or three sentences.",
+      "kind": "text",
+      "max": 320,
+      "min": 60,
+      "value": ""
+    },
+    "step.2.metric": {
+      "ask": "Step 2 metric label",
+      "hint": "What the metric card measures.",
+      "kind": "text",
+      "max": 28,
+      "value": ""
+    },
+    "step.2.value": {
+      "ask": "Step 2 metric value",
+      "hint": "A number with its unit, such as a percentage.",
+      "kind": "text",
+      "max": 8,
+      "value": ""
+    },
+    "step.3.value.1": {
+      "ask": "Step 3 tile 1 value",
+      "hint": "The number on dashboard tile 1; its label is step 3 item 1.",
+      "kind": "text",
+      "max": 10,
+      "value": ""
+    },
+    "step.3.value.2": {
+      "ask": "Step 3 tile 2 value",
+      "hint": "The number on dashboard tile 2; its label is step 3 item 2.",
+      "kind": "text",
+      "max": 10,
+      "value": ""
+    },
+    "step.3.value.3": {
+      "ask": "Step 3 tile 3 value",
+      "hint": "The number on dashboard tile 3; its label is step 3 item 3.",
+      "kind": "text",
+      "max": 10,
+      "value": ""
+    },
+    "guide.title": {
+      "ask": "Guide headline",
+      "hint": "Four to eight words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 60,
+      "value": ""
+    },
+    "guide.body": {
+      "ask": "Guide sentence",
+      "hint": "One or two sentences.",
+      "kind": "text",
+      "max": 160,
+      "min": 30,
+      "value": ""
+    },
+    "guide.cta": {
+      "ask": "Guide button label",
+      "hint": "Two to five words.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "guide.1.title": {
+      "ask": "Chapter 1 title",
+      "hint": "Two to four words.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "guide.2.title": {
+      "ask": "Chapter 2 title",
+      "hint": "Two to four words.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "guide.3.title": {
+      "ask": "Chapter 3 title",
+      "hint": "Two to four words.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "guide.4.title": {
+      "ask": "Chapter 4 title",
+      "hint": "Two to four words.",
+      "kind": "text",
+      "max": 26,
+      "value": ""
+    },
+    "tools.title": {
+      "ask": "Sky band headline",
+      "hint": "Five to ten words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 70,
+      "value": ""
+    },
+    "tools.body": {
+      "ask": "Sky band sentence",
+      "hint": "One sentence.",
+      "kind": "text",
+      "max": 150,
+      "min": 30,
+      "value": ""
+    },
+    "tools.1": {
+      "ask": "Sky band point 1",
+      "hint": "One short line; the three take turns lighting up.",
+      "kind": "text",
+      "max": 60,
+      "min": 15,
+      "value": ""
+    },
+    "tools.2": {
+      "ask": "Sky band point 2",
+      "hint": "One short line; the three take turns lighting up.",
+      "kind": "text",
+      "max": 60,
+      "min": 15,
+      "value": ""
+    },
+    "tools.3": {
+      "ask": "Sky band point 3",
+      "hint": "One short line; the three take turns lighting up.",
+      "kind": "text",
+      "max": 60,
+      "min": 15,
+      "value": ""
+    },
+    "search.title": {
+      "ask": "Word-search headline",
+      "hint": "Three to five words.",
+      "kind": "text",
+      "max": 36,
+      "value": ""
+    },
+    "search.body": {
+      "ask": "Word-search sentence",
+      "hint": "One or two sentences.",
+      "kind": "text",
+      "max": 150,
+      "min": 30,
+      "value": ""
+    },
+    "search.words": {
+      "ask": "Word-search words",
+      "hint": "Six things you cover (conditions, services, people you serve), separated by commas. Letters and spaces only, each at most 14 letters.",
+      "kind": "list",
+      "items": [
+        6,
+        6
+      ],
+      "itemMax": 14,
+      "letters": true,
+      "value": ""
+    },
+    "footer.title": {
+      "ask": "Footer headline",
+      "hint": "Four to eight words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
+      "kind": "text",
+      "max": 60,
+      "value": ""
+    },
+    "footer.card": {
+      "ask": "Footer card line",
+      "hint": "One sentence over the pixel picture.",
+      "kind": "text",
+      "max": 70,
+      "min": 20,
+      "value": ""
+    },
+    "footer.cta": {
+      "ask": "Footer card button label",
+      "hint": "Two to four words.",
+      "kind": "text",
+      "max": 22,
+      "value": ""
+    },
+    "footer.note": {
+      "ask": "Footer last line",
+      "hint": "One short line at the very bottom, over the grass.",
+      "kind": "text",
+      "max": 60,
+      "value": ""
+    },
     "partners.title": {
       "ask": "Partners headline",
-      "hint": "Three to six words for the organisations that buy or refer: health plans, providers, employers, schools. Wrap the one or two words to set in italics in *stars*.",
+      "hint": "Five to ten words for the organisations that buy or refer: health plans, providers, employers, schools. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
       "kind": "text",
-      "max": 56,
+      "max": 80,
       "value": ""
     },
     "partners.body": {
-      "ask": "Partners intro",
+      "ask": "Partners sentence",
       "hint": "Two sentences on what partners gain.",
       "kind": "text",
       "max": 240,
@@ -777,29 +785,11 @@
       "max": 24,
       "value": ""
     },
-    "benefit.1.icon": {
-      "ask": "Partner benefit 1 icon",
-      "hint": "Line drawing for this benefit.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
     "benefit.1.title": {
-      "ask": "Partner benefit 1 title",
-      "hint": "Two to four words.",
+      "ask": "Partner benefit 1",
+      "hint": "Three to six words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
       "kind": "text",
-      "max": 36,
+      "max": 50,
       "value": ""
     },
     "benefit.1.body": {
@@ -810,29 +800,11 @@
       "min": 40,
       "value": ""
     },
-    "benefit.2.icon": {
-      "ask": "Partner benefit 2 icon",
-      "hint": "Line drawing for this benefit.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
     "benefit.2.title": {
-      "ask": "Partner benefit 2 title",
-      "hint": "Two to four words.",
+      "ask": "Partner benefit 2",
+      "hint": "Three to six words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
       "kind": "text",
-      "max": 36,
+      "max": 50,
       "value": ""
     },
     "benefit.2.body": {
@@ -843,29 +815,11 @@
       "min": 40,
       "value": ""
     },
-    "benefit.3.icon": {
-      "ask": "Partner benefit 3 icon",
-      "hint": "Line drawing for this benefit.",
-      "kind": "choice",
-      "options": [
-        "home",
-        "doctor",
-        "video",
-        "heart",
-        "leaf",
-        "chat",
-        "shield",
-        "chart",
-        "pill",
-        "family"
-      ],
-      "value": ""
-    },
     "benefit.3.title": {
-      "ask": "Partner benefit 3 title",
-      "hint": "Two to four words.",
+      "ask": "Partner benefit 3",
+      "hint": "Three to six words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
       "kind": "text",
-      "max": 36,
+      "max": 50,
       "value": ""
     },
     "benefit.3.body": {
@@ -877,54 +831,54 @@
       "value": ""
     },
     "why.title": {
-      "ask": "Why partner title",
-      "hint": "Three to six words. Wrap the one or two words to set in italics in *stars*.",
+      "ask": "Why partner headline",
+      "hint": "Four to eight words. Wrap the second half in *stars* to set it in the lighter grey, like a two-tone headline.",
       "kind": "text",
-      "max": 48,
+      "max": 60,
       "value": ""
     },
     "why.1.title": {
       "ask": "Why partner reason 1",
-      "hint": "Two to four words.",
+      "hint": "Two or three words, set in bold.",
       "kind": "text",
-      "max": 32,
+      "max": 28,
       "value": ""
     },
     "why.1.body": {
       "ask": "Why partner reason 1 text",
-      "hint": "One or two sentences.",
+      "hint": "One sentence after the dash.",
       "kind": "text",
-      "max": 200,
+      "max": 160,
       "min": 30,
       "value": ""
     },
     "why.2.title": {
       "ask": "Why partner reason 2",
-      "hint": "Two to four words.",
+      "hint": "Two or three words, set in bold.",
       "kind": "text",
-      "max": 32,
+      "max": 28,
       "value": ""
     },
     "why.2.body": {
       "ask": "Why partner reason 2 text",
-      "hint": "One or two sentences.",
+      "hint": "One sentence after the dash.",
       "kind": "text",
-      "max": 200,
+      "max": 160,
       "min": 30,
       "value": ""
     },
     "why.3.title": {
       "ask": "Why partner reason 3",
-      "hint": "Two to four words.",
+      "hint": "Two or three words, set in bold.",
       "kind": "text",
-      "max": 32,
+      "max": 28,
       "value": ""
     },
     "why.3.body": {
       "ask": "Why partner reason 3 text",
-      "hint": "One or two sentences.",
+      "hint": "One sentence after the dash.",
       "kind": "text",
-      "max": 200,
+      "max": 160,
       "min": 30,
       "value": ""
     }

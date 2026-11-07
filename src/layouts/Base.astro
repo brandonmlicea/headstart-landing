@@ -3,7 +3,7 @@ import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import { b, plain } from "../blanks";
-interface Props { title?: string }
+interface Props { title?: string; solid?: boolean }
 const name = b("brand.name");
 const tagline = plain(b("brand.tagline"));
 const title = Astro.props.title ? `${Astro.props.title} · ${name}` : name;
@@ -21,8 +21,8 @@ const title = Astro.props.title ? `${Astro.props.title} · ${name}` : name;
     <script is:inline>document.documentElement.classList.add("js")</script>
   </head>
   <body>
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-raised focus:px-4 focus:py-2">Skip to content</a>
-    <Nav />
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-raised focus:px-4 focus:py-2">Skip to content</a>
+    <Nav solid={Astro.props.solid} />
     <main id="main"><slot /></main>
     <Footer />
     <script>import "../scripts/motion";</script>

@@ -1,21 +1,31 @@
 ---
 import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
-import Pillars from "../components/Pillars.astro";
-import Intro from "../components/Intro.astro";
-import Services from "../components/Services.astro";
-import Approach from "../components/Approach.astro";
-import Stats from "../components/Stats.astro";
-import Mission from "../components/Mission.astro";
-import Cta from "../components/Cta.astro";
+import Proof from "../components/Proof.astro";
+import Platform from "../components/Platform.astro";
+import Band from "../components/Band.astro";
+import Step from "../components/Step.astro";
+import Board from "../components/Board.astro";
+import Messages from "../components/Messages.astro";
+import Dashboard from "../components/Dashboard.astro";
+import Guide from "../components/Guide.astro";
+import Sky from "../components/Sky.astro";
+import WordSearch from "../components/WordSearch.astro";
+import { b, tone } from "../blanks";
 ---
 <Base>
   <Hero />
-  <Pillars />
-  <Intro />
-  <Services />
-  <Approach />
-  <Stats />
-  <Mission />
-  <Cta />
+  <Proof />
+  <Platform />
+  <Band />
+  <section id="story" class="mx-auto max-w-[68rem] px-5 pt-32 md:px-6">
+    <h2 class="max-w-[19ch] text-h2 text-ink" data-reveal set:html={tone(b("story.title"))} />
+    <p class="mt-10 max-w-xl text-body text-body" data-reveal>{b("story.body")}</p>
+  </section>
+  <Step s={1}><Board /></Step>
+  <Step s={2} flip><Messages /></Step>
+  <Step s={3}><Dashboard /></Step>
+  <Guide />
+  <Sky />
+  <WordSearch />
 </Base>

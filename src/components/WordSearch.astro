@@ -1,0 +1,30 @@
+---
+import { b, list } from "../blanks";
+const COLS = 18, ROWS = 10;
+const words = list("search.words").map((w) => w.toUpperCase().replace(/[^A-Z]/g, "")).filter((w) => w.length && w.length <= COLS).slice(0, 6);
+let seed = [...b("brand.name")].reduce((a, c) => a * 31 + c.charCodeAt(0), 7) >>> 0;
+const rand = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+const grid = Array.from({ length: ROWS }, () => Array.from({ length: COLS }, () => String.fromCharCode(65 + Math.floor(rand() * 26))));
+const rows = [0, 1, 2, 4, 6, 7, 3, 5, 8, 9];
+const found = words.map((w, i) => {
+  const r = rows[i], c = Math.floor(rand() * (COLS - w.length + 1));
+  [...w].forEach((ch, k) => (grid[r][c + k] = ch));
+  return { r, c, len: w.length };
+});
+const hit = (r: number, c: number) => found.some((f) => f.r === r && c >= f.c && c < f.c + f.len);
+---
+<section id="search" class="px-5 py-28 text-center md:px-6">
+  <h2 class="text-h3 font-[460] text-ink" data-reveal>{b("search.title")}</h2>
+  <p class="mx-auto mt-3 max-w-md text-body text-body" data-reveal>{b("search.body")}</p>
+  <p class="sr-only">{list("search.words").join(", ")}</p>
+  <div class="mx-auto mt-14 max-w-[54rem] overflow-x-auto" aria-hidden="true">
+    <div class="relative grid min-w-[36rem] font-mono text-[clamp(13px,1.6vw,21px)]" style={`grid-template-columns: repeat(${COLS}, 1fr); grid-template-rows: repeat(${ROWS}, 2.3em);`}>
+      {grid.flatMap((row, r) => row.map((ch, c) => (
+        <span class:list={["grid place-items-center", hit(r, c) ? "font-medium text-ink" : "text-quiet"]} style={`grid-row:${r + 1};grid-column:${c + 1}`}>{ch}</span>
+      )))}
+      {found.map((f) => (
+        <span class="pointer-events-none my-[0.28em] rounded-full border-[1.5px] border-tone-1-ink/70 shadow-[0_0_0_3px_var(--hs-tone-1)] origin-left" style={`grid-row:${f.r + 1};grid-column:${f.c + 1} / span ${f.len}`} data-find />
+      ))}
+    </div>
+  </div>
+</section>

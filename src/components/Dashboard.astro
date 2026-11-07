@@ -1,0 +1,30 @@
+---
+import { b, range } from "../blanks";
+const bar = (i: number) => (i < 12 ? "bg-tone-2-ink" : i < 19 ? "bg-tone-3-ink" : "bg-tone-4-ink");
+const a = [[0, 150], [60, 120], [120, 120], [180, 85], [240, 85], [300, 100], [360, 100], [420, 70], [480, 55]];
+const c = [[0, 170], [60, 158], [120, 158], [180, 130], [240, 130], [300, 140], [360, 120], [420, 104], [480, 92]];
+const pts = (p: number[][]) => p.map(([x, y]) => `${x},${y}`).join(" ");
+---
+<div id="dashboard" class="frame p-2" role="img" aria-label={b("step.3.title").replace(/\*/g, "")}>
+  <div class="rounded-[12px] border border-line bg-raised p-4">
+    <div class="grid gap-4 sm:grid-cols-3">
+      {range(3).map((i) => (
+        <div>
+          <p class="truncate text-[11px] text-body">{b(`step.3.item.${i}.title`)}</p>
+          <p class="mt-1 font-mono text-[22px] tracking-[-0.02em] text-ink" data-count={b(`step.3.value.${i}`)}>{b(`step.3.value.${i}`)}</p>
+          <div class="mt-2 flex gap-[2px]" aria-hidden="true">
+            {Array.from({ length: 24 }, (_, k) => <span class:list={["h-2 flex-1 rounded-[1px]", bar(k), k > 20 - i * 3 && "opacity-25"]} />)}
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="mt-6 border-t border-line pt-4">
+      <p class="text-[12px] text-ink">{b("step.3.item.4.title")}</p>
+      <svg class="mt-2 h-44 w-full" viewBox="0 0 480 190" preserveAspectRatio="none" aria-hidden="true">
+        {[50, 100, 150].map((y) => <line x1="0" x2="480" y1={y} y2={y} stroke="oklch(0 0 0 / 0.07)" />)}
+        <polyline points={pts(a)} fill="none" stroke="var(--hs-tone-2-ink)" stroke-width="2.4" stroke-linejoin="round" pathLength="1" data-line />
+        <polyline points={pts(c)} fill="none" stroke="var(--hs-accent)" stroke-width="2.4" stroke-linejoin="round" pathLength="1" data-line />
+      </svg>
+    </div>
+  </div>
+</div>

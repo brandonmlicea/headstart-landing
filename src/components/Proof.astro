@@ -1,0 +1,19 @@
+---
+import { b, range } from "../blanks";
+const looks = [
+  "font-mono text-[14px] font-medium tracking-[-0.02em]",
+  "font-serif text-[19px] uppercase tracking-[0.18em] text-tone-2-ink",
+  "text-[17px] font-[620] tracking-[-0.01em] text-body",
+  "text-[17px] font-[560] text-body",
+];
+---
+<section id="proof" class="px-5 pb-10 pt-16">
+  <div class="mx-auto flex max-w-[44rem] flex-wrap justify-center gap-3.5" data-stagger>
+    {range(4).map((i) => (
+      <div class="row grid h-[82px] w-[168px] place-items-center px-3 text-center shadow-[inset_0_1px_0_oklch(1_0_0/0.7)]">
+        <span class={looks[i - 1]}>{b(`proof.${i}`)}</span>
+      </div>
+    ))}
+  </div>
+  <p class="mt-9 text-center text-[13px] text-muted" data-reveal><strong class="font-[560] text-ink">{b("proof.count")}</strong> {b("proof.line")}</p>
+</section>

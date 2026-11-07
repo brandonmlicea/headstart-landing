@@ -1,0 +1,18 @@
+---
+interface Props { scene: string; w?: number; h?: number; seed?: number; dissolve?: string; flip?: boolean; class?: string; label?: string }
+const { scene, w = 160, h = 120, seed = 7, dissolve = "", flip = false, class: cls = "", label } = Astro.props;
+---
+<canvas
+  class:list={["pixel block", cls]}
+  width={w}
+  height={h}
+  data-pixel={scene}
+  data-w={w}
+  data-h={h}
+  data-seed={seed}
+  data-dissolve={dissolve}
+  data-flip={String(flip)}
+  role={label ? "img" : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : "true"}
+></canvas>

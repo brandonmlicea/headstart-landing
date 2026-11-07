@@ -1,16 +1,25 @@
 ---
 import { b } from "../blanks";
-const links = [[b("nav.care"), "/#care"], [b("nav.services"), "/#services"], [b("nav.approach"), "/#approach"], [b("nav.partners"), "/partners"]];
+interface Props { solid?: boolean }
+const steps = [1, 2, 3].map((s) => [b(`step.${s}.label`), `/#step-${s}`]);
+const pill = "flex h-[41px] items-center rounded-lg border transition-colors duration-300 border-white/25 bg-white/15 text-white backdrop-blur-md group-data-[scrolled]:border-transparent group-data-[scrolled]:bg-transparent group-data-[scrolled]:text-ink group-data-[scrolled]:backdrop-blur-none";
 ---
-<header id="nav" class="fixed inset-x-0 top-3 z-40 px-3" data-nav>
-  <nav class="mx-auto flex max-w-[64rem] items-center justify-between gap-4 rounded-2xl border border-line/70 bg-surface/85 p-1.5 backdrop-blur-md" aria-label="Main">
-    <a href="/" class="flex items-center gap-2 rounded-xl bg-raised px-3 py-2 text-[0.95rem] font-medium text-accent-ink">
-      <svg class="size-4" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M16 27s-11-6.6-11-14.2A6 6 0 0 1 16 9.4a6 6 0 0 1 11 3.4C27 20.4 16 27 16 27Z" /></svg>
-      {b("brand.name")}
-    </a>
-    <div class="flex items-center gap-1">
-      {links.map(([label, href]) => <a href={href} class="hidden rounded-lg px-3 py-2 text-sm text-ink transition hover:bg-ink/5 md:block">{label}</a>)}
-      <a href={b("link.app")} class="ml-1 rounded-xl bg-ink px-4 py-2 text-sm font-medium text-canvas transition hover:opacity-90">{b("nav.cta")}</a>
+<header id="nav" class="group fixed inset-x-0 top-0 z-40 transition-colors duration-300 data-[scrolled]:border-b data-[scrolled]:border-line data-[scrolled]:bg-canvas/90 data-[scrolled]:backdrop-blur-md" data-nav data-scrolled={Astro.props.solid ? "" : undefined} data-solid={Astro.props.solid ? "" : undefined}>
+  <nav class="flex h-[90px] items-center justify-between px-5 md:px-6" aria-label="Main">
+    <a href="/" id="nav-brand" class="font-serif text-[30px] leading-none tracking-[-0.01em] text-white transition-colors duration-300 group-data-[scrolled]:text-ink">{b("brand.name")}</a>
+    <div class="flex items-center gap-3 text-[16px]">
+      <div id="nav-steps" class:list={[pill, "hidden px-1 lg:flex"]}>
+        <span class="px-3.5 opacity-70">{b("nav.lead")}</span>
+        {steps.map(([label, href], i) => (
+          <a href={href} class="flex items-center px-2.5 hover:opacity-70">
+            <span class="mr-2.5 h-3 w-px bg-current opacity-25" aria-hidden="true" />{label}
+          </a>
+        ))}
+      </div>
+      <a href="/#guide" id="nav-guide" class:list={[pill, "hidden px-4 hover:opacity-80 md:flex"]}>{b("nav.guide")}</a>
+      <a href="/partners" id="nav-partners" class:list={[pill, "hidden px-4 hover:opacity-80 md:flex"]}>{b("nav.partners")}</a>
+      <a href={b("link.app")} id="nav-cta" class="btn h-[41px] btn-light px-3.5 group-data-[scrolled]:hidden">{b("nav.cta")}</a>
+      <a href={b("link.app")} class="btn hidden h-[41px] btn-dark px-3.5 group-data-[scrolled]:inline-flex">{b("nav.cta")}</a>
     </div>
   </nav>
 </header>

@@ -18,9 +18,10 @@ If you do not know an answer, ask the person. Do not invent facts: every stat ne
 
 ## Writing rules
 
-- `*word*` sets a word in italics (headlines, titles, the mission). One or two italic words per line.
+- Headlines are two-tone: the first half in ink, the second half in the lighter grey. Wrap the second half in `*stars*`: `Keep being family. *Let us handle the follow-up.*` In `mock.reply` the starred sentence is set in bold instead.
+- Lists (`mock.tabs`, `search.words`) are comma separated, with an exact count; `search.words` takes letters and spaces only.
+- `hero.prompt` is what the hero's copy button puts on the clipboard: a prompt people paste into their own AI assistant. Make it work on its own.
 - Hints say "the people you serve": a clinic's patients, a school's students, a caregiver. Write for whoever your startup serves.
-- Icons are a choice: home, doctor, video, heart, leaf, chat, shield, chart, pill, family.
 - Respect each blank's `max`. The layout was drawn for those lengths.
 
 ## Taking template updates
@@ -43,8 +44,14 @@ The product app (`headstart-product`) is meant to sit beside this folder (`../pr
 - `brand.format` picks how tokens are written: hex, rgb, srgb, hsl, oklch, oklab, lab, lch, p3.
 - `src/styles/tokens.css` is generated (light and dark). Never edit it; run `./fill tokens`.
 - Every text pair passes AA in both schemes: WCAG 4.5:1 and APCA Lc 60. `./fill contrast "<text>" "<bg>"` measures any pair and gives the nearest passing fix; `./fill convert "<color>"` prints every format.
-- Tailwind names: `bg-canvas`, `bg-surface`, `bg-raised`, `border-line`, `text-ink`, `text-muted`, `text-accent-ink` (accent as text), `bg-accent-fill` with `text-on-accent`, `bg-tone-1` to `bg-tone-5` with `text-ink`. Never add a raw color.
-- Type: `font-display` (Fraunces, headings at weight 400) and `font-sans` (DM Sans); sizes `text-h1`, `text-h2`, `text-h3`, `text-lead`.
+- The page is warm neutral (canvas, ink and greys stay the same for every brand); the brand color is the accent.
+- Tailwind names: `bg-canvas`, `bg-surface`, `bg-raised`, `border-line`; text `text-ink`, `text-body`, `text-muted`; `text-quiet` only for headings 24px and up (it meets the large-text goal, 3:1 and Lc 45); `text-accent-ink`, `bg-accent-fill` with `text-on-accent`; status tints `bg-tone-1..5` with `text-tone-1-ink..5-ink` (blue, green, amber, red, brand). Never add a raw color.
+- Type: `font-sans` (Geist), `font-mono` (IBM Plex Mono, for `eyebrow` labels and numbers), `font-serif` (Instrument Serif, the wordmark only); sizes `text-hero`, `text-h2`, `text-h3`, `text-body`, `text-row`, `text-eyebrow`. Headings are weight 400.
+- Ready-made pieces: `btn btn-dark`, `btn btn-light`, `btn btn-glass` (over pictures), `row` (bordered list rows), `frame` (product pictures), `dots` (dotted grid), `eyebrow`.
+
+## Pixel art
+
+The scenes are painted in code by `kit/pixel.mjs`, so there are no image files to replace. `<Pixel scene="meadow" w={480} h={270} seed={7} dissolve="bottom" />` draws one; scenes are meadow, sky, field, grass, dawn, noon, dusk and night, and `seed` changes the clouds, flowers and buildings. `dissolve` ("top", "bottom" or both) breaks the edge into pixels so the scene melts into the page.
 
 ## Map
 
@@ -52,8 +59,8 @@ The product app (`headstart-product`) is meant to sit beside this folder (`../pr
 
 | Route | File | Sections |
 | --- | --- | --- |
-| `/` | `src/pages/index.astro` | Hero, Pillars (pinned carousel), Intro, Services, Approach, Stats, Mission, Cta |
-| `/partners` | `src/pages/partners.astro` | hero, benefits, why partner, Stats, Cta |
+| `/` | `src/pages/index.astro` | Hero (pixel meadow, copy-prompt button), Proof, Platform (product picture and three features), Band, story, Step 1 with Board, Step 2 with Messages, Step 3 with Dashboard, Guide (chapter cards), Sky, WordSearch |
+| `/partners` | `src/pages/partners.astro` | hero, three benefits with pixel cards, why partner, Band |
 
 Nav and footer live in `src/components/Nav.astro` and `Footer.astro`; the page shell in `src/layouts/Base.astro`.
 
@@ -63,13 +70,13 @@ Nav and footer live in `src/components/Nav.astro` and `Footer.astro`; the page s
 
 - `data-split` words rise in (`data-now` on load instead of on scroll); build the html with `words()`.
 - `data-reveal` fades one element up; `data-stagger` fades its children up in turn.
-- `data-draw` draws an SVG's strokes (paths need `pathLength="1"`; `Icon` does this).
-- `data-count` counts a stat up from 0, keeping `$` and `%`.
-- `data-mission` lights a paragraph word by word as it scrolls.
-- `data-pillars` pins the carousel and steps through `data-pillar` cards while scrolling.
+- `data-count` counts a number up from 0, keeping `$`, `%` and commas.
+- `data-line` draws an SVG line; `data-grow` grows a bar; `data-card` pops a card in; `data-find` draws the word-search rings.
+- `data-pulse` sends dots along the platform picture's rays; `data-tool` lines take turns lighting up in the sky band.
+- The hero scene drifts as you scroll, the nav turns solid after the hero, and `data-copy` buttons copy their text.
 
 ## Adding a section
 
-1. Add its blanks to `blanks.json`: `{"ask": "...", "hint": "...", "kind": "text", "max": 60, "value": ""}`. Kinds: text, color, format, choice (with `options`), email, url, phone.
-2. Read them with `b("key")` from `src/blanks.ts`; `em()` and `words()` render `*italics*`.
+1. Add its blanks to `blanks.json`: `{"ask": "...", "hint": "...", "kind": "text", "max": 60, "value": ""}`. Kinds: text, color, format, choice (with `options`), list (with `items` and `itemMax`), email, url, phone.
+2. Read them with `b("key")` from `src/blanks.ts`; `tone()` and `words()` render the `*second tone*`, `list()` splits a list.
 3. `./fill check` fails on any `b("key")` that is not in `blanks.json`.

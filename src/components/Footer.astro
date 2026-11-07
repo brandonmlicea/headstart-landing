@@ -1,28 +1,37 @@
 ---
-import { b, plain } from "../blanks";
+import { b, tone } from "../blanks";
+import Pixel from "./Pixel.astro";
 const year = new Date().getFullYear();
 ---
-<footer id="footer" class="mt-24 bg-surface px-6 pb-10 pt-16">
-  <div class="mx-auto grid max-w-[64rem] gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+<footer id="footer" class="relative mt-10">
+  <div class="mx-auto grid max-w-[68rem] items-center gap-14 px-5 py-20 md:px-6 lg:grid-cols-[1fr_22rem]">
     <div>
-      <p class="font-display text-h3 text-accent-ink">{b("brand.name")}</p>
-      <p class="mt-3 max-w-sm text-muted">{plain(b("brand.tagline"))}</p>
+      <h2 class="max-w-[16ch] text-h2 text-ink" set:html={tone(b("footer.title"))} />
+      <nav class="mt-12 flex flex-wrap gap-x-4 gap-y-2 text-[15px]" aria-label="Steps">
+        <span class="text-muted">{b("nav.lead")}</span>
+        {[1, 2, 3].map((s) => <a href={`/#step-${s}`} class="text-body hover:text-ink">{b(`step.${s}.label`)}</a>)}
+      </nav>
+      <div class="mt-8 grid max-w-sm grid-cols-2 gap-y-2.5 text-[15px] text-body">
+        <a href="/#guide" class="hover:text-ink">{b("nav.guide")}</a>
+        <a href={`mailto:${b("link.email")}`} class="hover:text-ink">{b("link.email")}</a>
+        <a href="/partners" class="hover:text-ink">{b("nav.partners")}</a>
+        <span>{b("brand.location")}</span>
+        <a href={b("link.app")} class="hover:text-ink">{b("nav.cta")}</a>
+      </div>
+      <p class="mt-12 text-[12px] text-muted">© {year} {b("brand.name")}</p>
     </div>
-    <div class="text-sm">
-      <p class="text-muted">{b("footer.visit")}</p>
-      <ul class="mt-3 space-y-2">
-        <li><a class="hover:underline" href="/#services">{b("nav.services")}</a></li>
-        <li><a class="hover:underline" href="/partners">{b("nav.partners")}</a></li>
-        <li><a class="hover:underline" href={b("link.app")}>{b("nav.cta")}</a></li>
-      </ul>
-    </div>
-    <div class="text-sm">
-      <p class="text-muted">{b("footer.reach")}</p>
-      <ul class="mt-3 space-y-2">
-        <li><a class="hover:underline" href={`mailto:${b("link.email")}`}>{b("link.email")}</a></li>
-        <li>{b("brand.location")}</li>
-      </ul>
+    <div class="frame p-3">
+      <div class="relative overflow-hidden rounded-[12px]">
+        <Pixel scene="field" w={120} h={150} seed={5} class="aspect-[4/5] w-full" />
+        <div class="absolute inset-x-0 bottom-0 bg-[linear-gradient(transparent,oklch(0.2_0.05_150/0.85)_45%)] p-5 pt-20">
+          <p class="text-[22px] leading-[1.25] text-white">{b("footer.card")}</p>
+          <a href={b("link.app")} class="btn btn-light mt-4 h-10 px-3 text-[15px]">{b("footer.cta")}</a>
+        </div>
+      </div>
     </div>
   </div>
-  <p class="mx-auto mt-14 max-w-[64rem] border-t border-line pt-6 text-sm text-muted">© {year} {b("brand.name")}</p>
+  <div class="relative h-28 overflow-hidden">
+    <Pixel scene="grass" w={320} h={36} seed={9} dissolve="top" class="absolute inset-0 size-full" />
+    <p class="absolute inset-x-0 bottom-5 text-center text-[13px] font-medium text-ink">{b("footer.note")}</p>
+  </div>
 </footer>
