@@ -16,7 +16,8 @@
     "preview": "astro preview",
     "fill": "node kit/cli.mjs",
     "check": "node kit/cli.mjs check",
-    "mcp": "node kit/cli.mjs mcp"
+    "mcp": "node kit/cli.mjs mcp",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.4",
     "tailwindcss": "^4.3.4",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.158.0"
   }
 }

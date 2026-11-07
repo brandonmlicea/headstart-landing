@@ -49,6 +49,17 @@ Or press **Use this template** on GitHub for your own copy.
 
 Tools: `blanks`, `fill`, `check`, `map`, `sync`, `palette`, `convert`, `contrast`. They reach the paired product too, so one server keeps both sites in step.
 
+## Deploy
+
+`wrangler.json` serves `dist/` as static assets on Cloudflare Workers. Change its `name` first; the site lands on `https://<name>.<your-subdomain>.workers.dev`.
+
+```bash
+pnpm wrangler login   # once
+pnpm run deploy       # ./fill check, astro build, wrangler deploy
+```
+
+Set `link.app` to the product's deployed address before the last deploy, so every button points at it.
+
 ## For agents
 
 Read [AGENTS.md](AGENTS.md).

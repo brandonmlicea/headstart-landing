@@ -10,7 +10,7 @@ This repo is a template. Every word on the site is a blank in `blanks.json`, and
 4. `./fill check` until it prints `ready`. `pnpm build` runs the same check first and stops if anything is missing.
 5. `pnpm dev`, open http://localhost:4321 and look at every section.
 
-Run both sites on one computer: set `link.app` to the product's local address (`http://localhost:5173` by default, or the port you start it on) and the product's `link.landing` to the landing's (`http://localhost:4321` by default), then change them to the real domains before you deploy.
+Run both sites on one computer: set `link.app` to the product's local address (`http://localhost:5173` by default, or the port you start it on) and the product's `link.landing` to the landing's (`http://localhost:4321` by default), then change them to the real domains before you deploy. `pnpm run deploy` builds and ships `dist/` to Cloudflare Workers (`wrangler.json`; rename `name` first, `pnpm wrangler login` once).
 
 `./fill check` here covers the blanks, the color contrast and every `b("key")`; `pnpm build` compiles every page. (`astro check` is left out: it crashes on Node 24 with Astro 7.)
 
