@@ -3,7 +3,7 @@ import { b, tone, range } from "../blanks";
 import Pixel from "./Pixel.astro";
 ---
 <section id="sky" class="relative overflow-hidden" data-tools>
-  <Pixel scene="sky" w={320} h={200} seed={3} dissolve="top bottom" class="absolute inset-0 size-full object-cover" />
+  <Pixel scene="sky" w={720} h={450} seed={3} dissolve="top bottom" class="absolute inset-0 size-full object-cover" />
   <div class="pointer-events-none absolute inset-x-0 top-0 h-[70%] bg-[radial-gradient(55%_60%_at_50%_30%,oklch(0.36_0.12_255/0.55),transparent_75%)]" aria-hidden="true"></div>
   <div class="relative px-5 pb-40 pt-36 text-center text-white md:px-6">
     <h2 class="mx-auto max-w-[22ch] text-h2 [text-shadow:0_1px_12px_oklch(0.3_0.1_255/0.4)] [&_em]:text-white/80" data-reveal set:html={tone(b("tools.title"))} />

@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
     </div>
     <div class="frame p-3">
       <div class="relative overflow-hidden rounded-[12px]">
-        <Pixel scene="field" w={120} h={150} seed={5} class="aspect-[4/5] w-full" />
+        <Pixel scene="field" w={240} h={300} seed={5} class="aspect-[4/5] w-full" />
         <div class="absolute inset-x-0 bottom-0 bg-[linear-gradient(transparent,oklch(0.2_0.05_150/0.85)_45%)] p-5 pt-20">
           <p class="text-[22px] leading-[1.25] text-white">{b("footer.card")}</p>
           <a href={b("link.app")} class="btn btn-light mt-4 h-10 px-3 text-[15px]">{b("footer.cta")}</a>
@@ -31,7 +31,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="relative h-28 overflow-hidden">
-    <Pixel scene="grass" w={320} h={36} seed={9} dissolve="top" class="absolute inset-0 size-full" />
+    <Pixel scene="grass" w={960} h={108} seed={9} dissolve="top" class="absolute inset-0 size-full" />
     <p class="absolute inset-x-0 bottom-5 text-center text-[13px] font-medium text-ink">{b("footer.note")}</p>
   </div>
 </footer>

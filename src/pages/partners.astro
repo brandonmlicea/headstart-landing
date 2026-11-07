@@ -24,7 +24,7 @@ const scenes = ["dawn", "noon", "dusk"];
         <p class="mt-5 max-w-md text-body text-body" data-reveal>{b(`benefit.${i}.body`)}</p>
       </div>
       <div class="frame p-3" data-reveal>
-        <Pixel scene={scenes[i - 1]} w={160} h={100} seed={20 + i} class="aspect-[16/10] w-full rounded-[10px]" />
+        <Pixel scene={scenes[i - 1]} w={320} h={200} seed={20 + i} class="aspect-[16/10] w-full rounded-[10px]" />
       </div>
     </section>
   ))}

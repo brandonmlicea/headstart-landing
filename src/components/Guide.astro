@@ -20,7 +20,7 @@ const year = new Date().getFullYear();
             <p class="pl-2 text-[18px] leading-[1.2] text-ink">Chapter {i}<br />{b(`guide.${i}.title`)}</p>
             <hr class="my-5 border-line" />
             <p class="pl-2 font-mono text-[9px] text-muted">Chapter {roman(i)}</p>
-            <Pixel scene={scenes[i - 1]} w={120} h={96} seed={11 + i} class="mt-4 ml-2 aspect-[5/4] w-[calc(100%-0.5rem)] rounded-md" />
+            <Pixel scene={scenes[i - 1]} w={240} h={192} seed={11 + i} class="mt-4 ml-2 aspect-[5/4] w-[calc(100%-0.5rem)] rounded-md" />
             <div class="mt-4 flex justify-between pl-2 font-mono text-[9px] text-muted"><span>by {b("brand.name")}</span><span>{year}</span></div>
           </div>
         </div>
