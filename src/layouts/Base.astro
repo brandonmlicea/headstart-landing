@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { b, plain } from "../blanks";
+interface Props { title?: string }
+const name = b("brand.name");
+const tagline = plain(b("brand.tagline"));
+const title = Astro.props.title ? `${Astro.props.title} · ${name}` : `${name} · ${tagline}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={tagline} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={tagline} />
+    <script is:inline>document.documentElement.classList.add("js")</script>
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-raised focus:px-4 focus:py-2">Skip to content</a>
+    <Nav />
+    <main id="main"><slot /></main>
+    <Footer />
+    <script>import "../scripts/motion";</script>
+  </body>
+</html>

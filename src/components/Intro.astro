@@ -1,0 +1,16 @@
+---
+import { b, words } from "../blanks";
+import Icon from "./Icon.astro";
+---
+<section id="intro" class="mx-auto grid max-w-[64rem] items-center gap-12 px-6 py-28 md:grid-cols-[1.2fr_1fr]">
+  <div>
+    <p class="text-sm text-muted" data-reveal>{b("intro.eyebrow")}</p>
+    <h2 class="mt-5 max-w-[14ch] text-h2" data-split set:html={words(b("intro.statement"))} />
+    <p class="mt-10 max-w-md text-muted" data-reveal>{b("intro.body")}</p>
+  </div>
+  <div class="relative mx-auto grid aspect-square w-full max-w-sm place-items-center" aria-hidden="true">
+    <div class="absolute inset-[8%] rounded-full bg-tone-1"></div>
+    <div class="absolute inset-[24%] translate-x-[30%] translate-y-[22%] rounded-full bg-tone-4"></div>
+    <Icon name="home" class="relative size-[58%] text-ink" />
+  </div>
+</section>

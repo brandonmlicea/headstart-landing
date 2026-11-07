@@ -1,0 +1,20 @@
+---
+const DRAW: Record<string, string[]> = {
+  home: ["M6 23 24 8l18 15", "M11 19v21h26V19", "M24 35s-7-4.2-7-9a3.8 3.8 0 0 1 7-2.2 3.8 3.8 0 0 1 7 2.2c0 4.8-7 9-7 9Z"],
+  doctor: ["M13 7h-3v11a9 9 0 0 0 18 0V7h-3", "M19 27v4a9 9 0 0 0 18 0v-5", "M37 20a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"],
+  video: ["M7 11h34a2 2 0 0 1 2 2v20a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V13a2 2 0 0 1 2-2Z", "M17 41h14", "M24 35v6", "M24 18v10", "M19 23h10"],
+  heart: ["M24 40S7 30.5 7 18.5A8.5 8.5 0 0 1 24 13a8.5 8.5 0 0 1 17 5.5C41 30.5 24 40 24 40Z", "M11 24h7l3-5 4 9 3-4h9"],
+  leaf: ["M9 39C9 21 21 9 40 9c0 19-11 31-31 30Z", "M9 39 30 18", "M18 30h8", "M22 26v-7"],
+  chat: ["M8 10h32a2 2 0 0 1 2 2v19a2 2 0 0 1-2 2H22l-9 7v-7H8a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z", "M24 16v11", "M18.5 21.5h11"],
+  shield: ["M24 6 39 11v11c0 10-6.5 17-15 20C15.5 39 9 32 9 22V11Z", "M24 16v13", "M17.5 22.5h13"],
+  chart: ["M7 7v34h34", "M13 33l8-9 6 5 11-14", "M32 15h6v6"],
+  pill: ["M17 9a8 8 0 0 1 11.3 0l10.7 10.7a8 8 0 0 1-11.3 11.3L17 20.3A8 8 0 0 1 17 9Z", "M22.3 25.6 33.6 14.3", "M12 38h24"],
+  family: ["M16 16a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z", "M33 19a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z", "M6 41v-8a10 10 0 0 1 20 0v8", "M25 30a8 8 0 0 1 16 0v11"],
+};
+interface Props { name: string; class?: string; draw?: boolean }
+const { name, class: cls = "size-12", draw = true } = Astro.props;
+const paths = DRAW[name] ?? DRAW.heart;
+---
+<svg class={cls} viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-draw={draw ? "" : undefined}>
+  {paths.map((d) => <path d={d} pathLength="1" />)}
+</svg>

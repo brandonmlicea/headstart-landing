@@ -1,0 +1,32 @@
+{
+  "name": "headstart-landing",
+  "description": "Agent-native healthcare landing template: Astro, GSAP, a fill-in-the-blanks form and an MCP server.",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "headstart": "kit/cli.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node kit/cli.mjs tokens >/dev/null && astro dev",
+    "build": "node kit/cli.mjs check && astro build",
+    "preview": "astro preview",
+    "fill": "node kit/cli.mjs",
+    "check": "node kit/cli.mjs check",
+    "mcp": "node kit/cli.mjs mcp"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "astro": "^7.4.7",
+    "gsap": "^3.15.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.4",
+    "tailwindcss": "^4.3.4",
+    "typescript": "^5.9.3"
+  }
+}

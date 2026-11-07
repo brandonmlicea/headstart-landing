@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fraunces/wght.css";
+@import "@fontsource-variable/fraunces/wght-italic.css";
+@import "@fontsource-variable/dm-sans/wght.css";
+@import "./tokens.css";
+
+@theme inline {
+  --color-canvas: var(--hs-canvas);
+  --color-surface: var(--hs-surface);
+  --color-raised: var(--hs-raised);
+  --color-line: var(--hs-line);
+  --color-ink: var(--hs-ink);
+  --color-muted: var(--hs-muted);
+  --color-accent: var(--hs-accent);
+  --color-accent-ink: var(--hs-accent-ink);
+  --color-accent-fill: var(--hs-accent-fill);
+  --color-on-accent: var(--hs-on-accent);
+  --color-focus: var(--hs-focus);
+  --color-tone-1: var(--hs-tone-1);
+  --color-tone-2: var(--hs-tone-2);
+  --color-tone-3: var(--hs-tone-3);
+  --color-tone-4: var(--hs-tone-4);
+  --color-tone-5: var(--hs-tone-5);
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --text-h1: clamp(2.6rem, 1.6rem + 4.4vw, 5.25rem);
+  --text-h1--line-height: 1.04;
+  --text-h2: clamp(2.1rem, 1.5rem + 2.6vw, 3.75rem);
+  --text-h2--line-height: 1.06;
+  --text-h3: clamp(1.45rem, 1.25rem + 0.8vw, 2rem);
+  --text-h3--line-height: 1.12;
+  --text-lead: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+  --text-lead--line-height: 1.5;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-canvas text-ink font-sans antialiased; text-rendering: optimizeLegibility; }
+  h1, h2, h3 { @apply font-display font-normal tracking-[-0.015em]; text-wrap: balance; }
+  em { font-style: italic; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--hs-accent-fill); color: var(--hs-on-accent); }
+  :focus-visible { outline: 2px solid var(--hs-focus); outline-offset: 3px; border-radius: 6px; }
+}
+
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.wi { display: inline-block; }
+.js [data-split] .wi { transform: translateY(110%); }
+.js [data-reveal], .js [data-stagger] > * { opacity: 0; }
+.js [data-draw] :is(path, circle, rect, line, polyline, ellipse) { stroke-dasharray: 1; stroke-dashoffset: 1; }
+[data-mission] .w { opacity: 0.22; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js [data-split] .wi { transform: none; }
+  .js [data-reveal], .js [data-stagger] > *, [data-mission] .w { opacity: 1; }
+  .js [data-draw] :is(path, circle, rect, line, polyline, ellipse) { stroke-dashoffset: 0; }
+}

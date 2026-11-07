@@ -1,0 +1,22 @@
+---
+import { b, em, words, range } from "../blanks";
+import Icon from "./Icon.astro";
+---
+<section id="approach" class="mx-auto max-w-[64rem] px-6 py-24">
+  <div class="text-center">
+    <h2 class="mx-auto max-w-[16ch] text-h2" data-split set:html={words(b("approach.title"))} />
+    <p class="mx-auto mt-6 max-w-md text-muted" data-reveal>{b("approach.body")}</p>
+  </div>
+  <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+    {range(6).map((i) => (
+      <article class="rounded-2xl border border-line bg-raised p-7">
+        <div class="flex items-start justify-between">
+          <p class="text-sm text-muted">{b("approach.eyebrow")}</p>
+          <Icon name={b(`approach.${i}.icon`)} class="size-10 text-accent-ink" />
+        </div>
+        <h3 class="mt-10 text-h3" set:html={em(b(`approach.${i}.title`))} />
+        <p class="mt-4 text-[0.95rem] text-muted">{b(`approach.${i}.body`)}</p>
+      </article>
+    ))}
+  </div>
+</section>

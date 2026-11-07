@@ -1,0 +1,16 @@
+---
+import { b } from "../blanks";
+const links = [["Care", "/#care"], ["Services", "/#services"], ["Approach", "/#approach"], ["Partners", "/partners"]];
+---
+<header id="nav" class="fixed inset-x-0 top-3 z-40 px-3" data-nav>
+  <nav class="mx-auto flex max-w-[64rem] items-center justify-between gap-4 rounded-2xl border border-line/70 bg-surface/85 p-1.5 backdrop-blur-md" aria-label="Main">
+    <a href="/" class="flex items-center gap-2 rounded-xl bg-raised px-3 py-2 text-[0.95rem] font-medium text-accent-ink">
+      <svg class="size-4" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M16 27s-11-6.6-11-14.2A6 6 0 0 1 16 9.4a6 6 0 0 1 11 3.4C27 20.4 16 27 16 27Z" /></svg>
+      {b("brand.name")}
+    </a>
+    <div class="flex items-center gap-1">
+      {links.map(([label, href]) => <a href={href} class="hidden rounded-lg px-3 py-2 text-sm text-ink transition hover:bg-ink/5 md:block">{label}</a>)}
+      <a href={b("link.app")} class="ml-1 rounded-xl bg-ink px-4 py-2 text-sm font-medium text-canvas transition hover:opacity-90">{b("nav.cta")}</a>
+    </div>
+  </nav>
+</header>

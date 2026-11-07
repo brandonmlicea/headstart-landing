@@ -1,0 +1,19 @@
+---
+import { b, words } from "../blanks";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+---
+<section id="hero" class="relative flex min-h-[92svh] flex-col items-center justify-center px-6 pb-16 pt-32 text-center">
+  <h1 class="max-w-[16ch] text-h1 md:max-w-[22ch]" data-split data-now>
+    <Fragment set:html={words(b("hero.lead"))} />
+    <span class="inline-block align-middle text-accent-ink"><Icon name="family" class="mx-1 size-[0.9em] -translate-y-[0.06em]" /></span>
+    <Fragment set:html={words(`*${b("hero.em")}*`)} />
+    <Fragment set:html={words(b("hero.tail"))} />
+  </h1>
+  <svg class="mt-5 h-9 w-44 translate-x-[18%] text-ink" viewBox="0 0 160 30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10c40 22 100 22 150 2m-14-8 15 7-11 12" pathLength="1" stroke-dasharray="1" data-arrow /></svg>
+  <p class="mt-8 max-w-xl text-lead text-muted" data-reveal>{b("hero.sub")}</p>
+  <div class="mt-9 flex flex-wrap justify-center gap-3" data-reveal>
+    <Button href={b("link.app")}>{b("hero.cta")}</Button>
+    <Button href="#services" kind="line">Our services</Button>
+  </div>
+</section>
