@@ -33,6 +33,7 @@ Or press **Use this template** on GitHub for your own copy.
 ./fill contrast "#999" "#fff"  # WCAG + APCA, with the nearest passing fix
 ./fill convert "oklch(0.62 0.11 190)"
 ./fill sync                    # pull brand and links from the product beside it
+./fill export answers.json     # save your answers (before pulling template updates)
 ./fill map                     # which file uses which blank
 ```
 

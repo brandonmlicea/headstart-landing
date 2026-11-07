@@ -23,6 +23,16 @@ If you do not know an answer, ask the person. Do not invent facts: every stat ne
 - Icons are a choice: home, doctor, video, heart, leaf, chat, shield, chart, pill, family.
 - Respect each blank's `max`. The layout was drawn for those lengths.
 
+## Taking template updates
+
+Answers live inside `blanks.json`, so keep them in an answers file too: `./fill export answers.json` (secrets stay in `.env`). To update:
+
+```bash
+./fill export answers.json
+git checkout -- blanks.json && git pull
+./fill --from answers.json && ./fill list    # fills what you had, then shows any new blanks
+```
+
 ## The pair
 
 The product app (`headstart-product`) is meant to sit beside this folder (`../product` or any sibling with a `blanks.json` whose `site` is `product`). Filling any `brand.*` or `link.*` blank here fills it there too, and rewrites both sites' color tokens. `./fill sync` pulls them from the pair, `./fill sync --push` sends them. The MCP tools take `site: "this" | "pair" | "both"`.
